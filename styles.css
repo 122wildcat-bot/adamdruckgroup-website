@@ -695,6 +695,104 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin: 0;
 }
 
+/* Rotating testimonials */
+.quote__eyebrow {
+  color: var(--celestial);
+  opacity: 0.95;
+  margin-bottom: 2rem;
+}
+.testimonials {
+  position: relative;
+  min-height: 240px;
+  display: grid;
+}
+.testimonial {
+  grid-column: 1;
+  grid-row: 1;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+  visibility: hidden;
+}
+.testimonial.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+.testimonial blockquote {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  line-height: 1.45;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.015em;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+.testimonial__cite {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.6;
+}
+.testimonial__cite strong {
+  color: var(--celestial);
+  font-weight: 600;
+}
+.testimonials__controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 2.25rem;
+}
+.testimonials__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.testimonials__dot:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+.testimonials__dot.is-active {
+  background: var(--celestial);
+  transform: scale(1.35);
+}
+.testimonials__dot:focus-visible {
+  outline: 2px solid var(--celestial);
+  outline-offset: 3px;
+}
+.quote__source {
+  margin: 1.75rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  font-weight: 500;
+}
+.quote__source a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.25);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+.quote__source a:hover {
+  text-decoration-color: var(--celestial);
+}
+@media (prefers-reduced-motion: reduce) {
+  .testimonial { transition: opacity 0.2s linear; transform: none; }
+}
+
 /* ============================================================
    CONTACT
    ============================================================ */

@@ -87,6 +87,126 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
+// ==========================================================
+// Rotating testimonials — verified reviews from Zillow & Homes.com
+// ==========================================================
+const TESTIMONIALS = [
+  {
+    quote: "Adam is by far the best realtor I have ever worked with. His knowledge of home construction and eye for potential problems is invaluable.",
+    name: "K. Garvin", meta: "York, PA — Buyer", agent: "Adam Druck", source: "Zillow"
+  },
+  {
+    quote: "Adam was so helpful and professional during the sale of our home. He priced our home so we received multiple offers within a couple days — the offer we accepted was over our list price and we settled within 30 days.",
+    name: "Townhouse Seller", meta: "York, PA — Seller", agent: "Adam Druck", source: "Zillow"
+  },
+  {
+    quote: "As first-time homebuyers, we couldn’t have asked for a better experience than working with Zach. He was incredibly kind, patient, and supportive throughout the entire process.",
+    name: "Kelsey Groff", meta: "First-Time Buyer", agent: "Zachery Keller", source: "Zillow"
+  },
+  {
+    quote: "Trevor went above and beyond to get the deal done. It didn’t matter what time of day it was — he was always extremely responsive. He sold our house in a day and helped us buy our dream home.",
+    name: "Verified Client", meta: "Dover, PA — Buyer & Seller", agent: "Trevor Stuck", source: "Zillow"
+  },
+  {
+    quote: "I was a first-time home buyer with some nerves going into the process. Adam took me under his wing and guided me throughout the entire process.",
+    name: "S. Eaton", meta: "York, PA — First-Time Buyer", agent: "Adam Druck", source: "Zillow"
+  },
+  {
+    quote: "Could not recommend Zach enough. My wife and I got married and settled on this property within 5 days. Zach went above and beyond for us.",
+    name: "Luke O.", meta: "Central PA — Buyer", agent: "Zachery Keller", source: "Zillow"
+  },
+  {
+    quote: "We were extremely pleased with Amanda’s expertise in selling my mother’s home. She was always available to answer questions and give sound advice.",
+    name: "Verified Client", meta: "York, PA — Seller", agent: "Amanda Eisenhart", source: "Zillow"
+  },
+  {
+    quote: "Adam was very attentive to the transaction, specifically because I purchased the home from California. I would recommend him in the future.",
+    name: "Out-of-State Buyer", meta: "York, PA — Relocation", agent: "Adam Druck", source: "Zillow"
+  },
+  {
+    quote: "Zachery did an outstanding job helping us sell our house in MD and buy a house in PA. He listened to our needs and was always available.",
+    name: "Phil Byle", meta: "MD → PA — Relocation", agent: "Zachery Keller", source: "Zillow"
+  },
+  {
+    quote: "Amanda is very organized and patient. She returns calls and messages in a timely manner — great to work with and has an eye for layout and design.",
+    name: "Verified Client", meta: "York, PA — Buyer", agent: "Amanda Eisenhart", source: "Zillow"
+  }
+];
+
+(function initTestimonials() {
+  const track = document.getElementById('testimonials-track');
+  const controls = document.querySelector('.testimonials__controls');
+  if (!track || !controls) return;
+
+  // Shuffle so the order feels fresh on each visit (Fisher–Yates)
+  const deck = TESTIMONIALS.slice();
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+
+  // Render
+  deck.forEach((t, i) => {
+    const slide = document.createElement('figure');
+    slide.className = 'testimonial' + (i === 0 ? ' is-active' : '');
+    slide.innerHTML = `
+      <blockquote>“${t.quote}”</blockquote>
+      <figcaption class="testimonial__cite">
+        — ${t.name}, ${t.meta}<br>
+        On working with <strong>${t.agent}</strong>
+      </figcaption>
+    `;
+    track.appendChild(slide);
+
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'testimonials__dot' + (i === 0 ? ' is-active' : '');
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `Show review ${i + 1} of ${deck.length}`);
+    dot.dataset.idx = String(i);
+    controls.appendChild(dot);
+  });
+
+  const slides = Array.from(track.querySelectorAll('.testimonial'));
+  const dots = Array.from(controls.querySelectorAll('.testimonials__dot'));
+  let idx = 0;
+  let timer = null;
+  const INTERVAL = 6500;
+
+  function show(n) {
+    idx = (n + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+    dots.forEach((d, i) => {
+      d.classList.toggle('is-active', i === idx);
+      d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+    });
+  }
+  function next() { show(idx + 1); }
+  function start() { stop(); timer = setInterval(next, INTERVAL); }
+  function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+  dots.forEach(d => d.addEventListener('click', () => {
+    show(parseInt(d.dataset.idx, 10));
+    start(); // restart the cycle on manual nav
+  }));
+
+  // Pause on hover / focus
+  const section = document.getElementById('testimonials');
+  section.addEventListener('mouseenter', stop);
+  section.addEventListener('mouseleave', start);
+  section.addEventListener('focusin', stop);
+  section.addEventListener('focusout', start);
+
+  // Only auto-cycle when visible — saves battery on long pages
+  const vis = new IntersectionObserver((entries) => {
+    entries.forEach(e => e.isIntersecting ? start() : stop());
+  }, { threshold: 0.2 });
+  vis.observe(section);
+
+  // Respect user’s motion preference — still rotate, but the CSS transition is shorter
+  start();
+})();
+
 // Subtle reveal on scroll (cheap, no library)
 const revealEls = document.querySelectorAll('.section-title, .agent, .area-card, .stat, .editorial__image, .editorial__caption, .hero__title');
 const io = new IntersectionObserver((entries) => {
