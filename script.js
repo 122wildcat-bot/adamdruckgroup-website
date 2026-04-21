@@ -2,14 +2,17 @@
 // Adam Druck Group — interactive behaviors
 // ==========================================================
 
-// Scroll-triggered nav background
+// Scroll-triggered nav background (only on homepage with transparent hero nav)
 const nav = document.getElementById('nav');
-const onScroll = () => {
-  if (window.scrollY > 40) nav.classList.add('is-scrolled');
-  else nav.classList.remove('is-scrolled');
-};
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
+const isSubpage = document.body.classList.contains('subpage');
+if (nav && !isSubpage) {
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
 
 // Mobile menu
 const navToggle = document.getElementById('navToggle');
@@ -20,10 +23,13 @@ function buildMobileMenu() {
   mobileMenu.className = 'mobile-menu';
   mobileMenu.innerHTML = `
     <nav aria-label="Mobile">
-      <a href="#about">About</a>
-      <a href="#team">Team</a>
-      <a href="#areas">Areas</a>
-      <a href="#contact">Contact</a>
+      <a href="/buy.html">Buy</a>
+      <a href="/sell.html">Sell</a>
+      <a href="/invest.html">Invest</a>
+      <a href="/communities.html">Communities</a>
+      <a href="/insights.html">Insights</a>
+      <a href="/about.html">About</a>
+      <a href="/#contact">Contact</a>
       <a href="https://adamdruck.sites.cbmoxi.com/search" target="_blank" rel="noopener">Search Homes</a>
     </nav>
   `;
@@ -42,8 +48,9 @@ navToggle?.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
-// Current year in footer
-document.getElementById('year').textContent = new Date().getFullYear();
+// Current year in footer (may not exist on every page)
+const _yearEl = document.getElementById('year');
+if (_yearEl) _yearEl.textContent = new Date().getFullYear();
 
 // Contact form — front-end stub (Coldwell Banker / CRM integration to be wired by IT)
 function handleSubmit(e) {
@@ -59,7 +66,7 @@ function handleSubmit(e) {
     `Interest: ${formData.interest || ''}\n\n` +
     `Message:\n${formData.message || ''}`
   );
-  window.location.href = `mailto:adam.druck@cbrealty.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:yourrealtoradamd@gmail.com?subject=${subject}&body=${body}`;
 
   // Visual feedback
   const btn = form.querySelector('button[type="submit"]');

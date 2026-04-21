@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+"""Reusable shell for sub-pages. Produces a consistent header + footer."""
+
+def shell(title, description, canonical_slug, body_html, extra_head=""):
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content="{description}" />
+<meta name="theme-color" content="#012169" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="{title}" />
+<meta property="og:description" content="{description}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://adamdruckgroup.com/{canonical_slug}" />
+<link rel="canonical" href="https://adamdruckgroup.com/{canonical_slug}" />
+
+<!-- Fonts: Fraunces (serif display) + Inter (sans body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="/styles.css" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+{extra_head}
+</head>
+<body class="subpage">
+
+<!-- ========== NAVIGATION ========== -->
+<header class="nav is-scrolled" id="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo" aria-label="Adam Druck Group — Home">
+      <svg class="nav__logo-mark" viewBox="0 0 120 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="0" y="30" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="28" fill="#012169">A</text>
+        <text x="34" y="30" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="28" fill="#012169">D</text>
+        <text x="70" y="30" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="28" fill="#418FDE">G</text>
+        <line x1="0" y1="38" x2="103" y2="38" stroke="#012169" stroke-width="1.5"/>
+      </svg>
+      <span class="nav__logo-text">
+        <span class="nav__logo-name">Adam Druck Group</span>
+        <span class="nav__logo-sub">Coldwell Banker Realty</span>
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/buy.html">Buy</a>
+      <a href="/sell.html">Sell</a>
+      <a href="/invest.html">Invest</a>
+      <a href="/communities.html">Communities</a>
+      <a href="/insights.html">Insights</a>
+      <a href="/about.html">About</a>
+      <a href="/#contact">Contact</a>
+      <a href="https://adamdruck.sites.cbmoxi.com/search" class="nav__cta" target="_blank" rel="noopener">Search Homes</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+{body_html}
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__col footer__col--brand">
+      <svg class="footer__logo" viewBox="0 0 120 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="0" y="30" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="28" fill="#FDFCF8">A</text>
+        <text x="34" y="30" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="28" fill="#FDFCF8">D</text>
+        <text x="70" y="30" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="28" fill="#418FDE">G</text>
+        <line x1="0" y1="38" x2="103" y2="38" stroke="#FDFCF8" stroke-width="1.5"/>
+      </svg>
+      <p class="footer__tagline">A different standard of real estate.<br/>York County, Pennsylvania and beyond.</p>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__head">Contact</p>
+      <p><a href="tel:+17174872579">(717) 487-2579</a></p>
+      <p><a href="mailto:yourrealtoradamd@gmail.com">yourrealtoradamd@gmail.com</a></p>
+      <p>2251 Eastern Blvd, Ste 201<br/>York, PA 17402</p>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__head">Explore</p>
+      <p><a href="/buy.html">Buy</a></p>
+      <p><a href="/sell.html">Sell</a></p>
+      <p><a href="/invest.html">Invest</a></p>
+      <p><a href="/communities.html">Communities</a></p>
+      <p><a href="/insights.html">Insights</a></p>
+      <p><a href="/about.html">About</a></p>
+      <p><a href="https://adamdruck.sites.cbmoxi.com/search" target="_blank" rel="noopener">Search Homes</a></p>
+    </div>
+
+    <div class="footer__col footer__col--compliance">
+      <p class="footer__head">Compliance</p>
+      <p>PA License RS-0038815</p>
+      <p>Licensed in PA, MD &amp; DE</p>
+      <p class="footer__eho" aria-label="Equal Housing Opportunity">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1v-9z"/>
+          <line x1="3" y1="11" x2="21" y2="11"/>
+          <line x1="12" y1="4" x2="12" y2="11"/>
+        </svg>
+        Equal Housing Opportunity
+      </p>
+    </div>
+  </div>
+
+  <div class="footer__legal">
+    <p>© <span id="year"></span> Adam Druck Group. All rights reserved.</p>
+    <p>
+      Adam Druck is a licensed real estate agent affiliated with Coldwell Banker Realty.
+      Coldwell Banker Realty fully supports the principles of the Fair Housing Act and the
+      Equal Opportunity Act. Each office is independently owned and operated. REALTOR® and
+      the REALTOR® logo are registered trademarks of the National Association of REALTORS®.
+    </p>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>
+"""
