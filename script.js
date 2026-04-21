@@ -24,7 +24,7 @@ function buildMobileMenu() {
       <a href="#team">Team</a>
       <a href="#areas">Areas</a>
       <a href="#contact">Contact</a>
-      <a href="https://www.coldwellbanker.com/pa/york/agents/adam-druck-team/tid-P01700000000031wusBTjt7u1DgtW12T3cpXAJ4X" target="_blank" rel="noopener">Search Homes</a>
+      <a href="https://adamdruck.sites.cbmoxi.com/search" target="_blank" rel="noopener">Search Homes</a>
     </nav>
   `;
   document.body.appendChild(mobileMenu);
