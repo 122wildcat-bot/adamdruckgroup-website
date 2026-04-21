@@ -51,7 +51,7 @@ def shell(title, description, canonical_slug, body_html, extra_head=""):
       <a href="/communities.html">Communities</a>
       <a href="/insights.html">Insights</a>
       <a href="/about.html">About</a>
-      <a href="/#contact">Contact</a>
+      <a href="/contact.html">Contact</a>
       <a href="https://adamdruck.sites.cbmoxi.com/search" class="nav__cta" target="_blank" rel="noopener">Search Homes</a>
     </nav>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">

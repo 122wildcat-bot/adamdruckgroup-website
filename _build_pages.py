@@ -441,35 +441,35 @@ communities_body = """
       <h2 class="hoods-group__title">Pennsylvania</h2>
       <div class="hoods">
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--cb-blue), var(--celestial));"></div>
+          <img src="images/communities/york.jpg" alt="Historic downtown York, Pennsylvania" loading="lazy" />
           <div class="hood__label"><h3>Spring Garden &middot; York</h3><p>Historic · Walkable</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--slate), var(--cb-blue));"></div>
+          <img src="images/communities/dover.jpg" alt="Dover Township neighborhood at sunset" loading="lazy" />
           <div class="hood__label"><h3>Dover Township</h3><p>Family · Growing</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--cb-blue-deep), var(--celestial));"></div>
+          <img src="images/communities/redlion.jpg" alt="Pennsylvania small-town main street" loading="lazy" />
           <div class="hood__label"><h3>Dallastown</h3><p>Schools · Quiet</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--celestial), var(--cream-dark));"></div>
+          <img src="images/communities/redlion.jpg" alt="Red Lion, Pennsylvania streetscape" loading="lazy" />
           <div class="hood__label"><h3>Red Lion</h3><p>Value · Acreage</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, #3a5578, var(--celestial-light));"></div>
+          <img src="images/communities/hanover.jpg" alt="Hanover area aerial view" loading="lazy" />
           <div class="hood__label"><h3>Hanover &amp; West Manchester</h3><p>Commuter · Active</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--cb-blue), var(--slate));"></div>
+          <img src="images/communities/stewartstown.jpg" alt="Rural Pennsylvania road in autumn" loading="lazy" />
           <div class="hood__label"><h3>Stewartstown</h3><p>Rural · Maryland Border</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--cream-dark), var(--celestial));"></div>
+          <img src="images/communities/hanover.jpg" alt="Small-town Pennsylvania aerial" loading="lazy" />
           <div class="hood__label"><h3>East Berlin &amp; Wrightsville</h3><p>River · Character</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--cb-blue-deep), var(--cb-blue));"></div>
+          <img src="images/communities/harrisburg.jpg" alt="Pennsylvania State Capitol in Harrisburg" loading="lazy" />
           <div class="hood__label"><h3>Harrisburg Metro</h3><p>Capital Region</p></div>
         </div>
       </div>
@@ -479,19 +479,19 @@ communities_body = """
       <h2 class="hoods-group__title">Maryland &amp; Delaware</h2>
       <div class="hoods">
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--slate), var(--celestial));"></div>
+          <img src="images/communities/aberdeen.jpg" alt="Maryland suburban neighborhood aerial" loading="lazy" />
           <div class="hood__label"><h3>Aberdeen &middot; Harford County</h3><p>Commuter · APG-Adjacent</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--celestial-light), var(--cb-blue));"></div>
+          <img src="images/communities/aberdeen.jpg" alt="Northern Maryland community" loading="lazy" />
           <div class="hood__label"><h3>Bel Air &amp; Northern MD</h3><p>Family · Schools</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--cb-blue), var(--cream-dark));"></div>
+          <img src="images/communities/delaware.jpg" alt="Historic Elkton-area streetscape" loading="lazy" />
           <div class="hood__label"><h3>Elkton &middot; Cecil County</h3><p>Value · Commuter Bridge</p></div>
         </div>
         <div class="hood">
-          <div class="hood-bg" style="background: linear-gradient(135deg, var(--cb-blue-deep), var(--celestial));"></div>
+          <img src="images/communities/delaware.jpg" alt="Historic New Castle, Delaware" loading="lazy" />
           <div class="hood__label"><h3>Northern Delaware</h3><p>Licensed &amp; Active</p></div>
         </div>
       </div>
@@ -617,7 +617,7 @@ about_body = """
       Born in York. <span class="italic">Built for York real estate.</span>
     </h1>
     <p class="page-lead__lede">
-      Four generations of York County roots. Two hundred-plus families served across
+      Four generations of York County roots. Five hundred-plus families served across
       Pennsylvania, Maryland, and Delaware. One commitment: do right by every
       client, every time.
     </p>
@@ -643,7 +643,7 @@ about_body = """
         </p>
         <p>
           He brought that instinct into real estate and has since closed
-          <strong>200+ transactions</strong> across Pennsylvania, Maryland, and Delaware.
+          <strong>500+ transactions</strong> across Pennsylvania, Maryland, and Delaware.
           He works with first-time buyers navigating their first inspection, sellers
           who deserve a market-beating result, and investors who need an agent who
           can underwrite a project in their head while standing in the basement.
@@ -709,7 +709,7 @@ pages = [
     ('invest.html',      'Real Estate Investment Services | Adam Druck Group',         'York County investor specialist: flips, BRRRR, buy-and-hold, and 1031 strategy. Off-market deal flow, underwriting, and contractor network.', 'invest.html',      invest_body),
     ('communities.html', 'Communities We Serve: PA, MD & DE | Adam Druck Group',       'York County communities and tri-state neighborhoods — Spring Garden, Dover, Dallastown, Aberdeen, Bel Air, and more.',               'communities.html', communities_body),
     ('insights.html',    'Market Insights & Reports | Adam Druck Group',               'York County market reports, investor playbooks, and buyer/seller guides from the Adam Druck Group at Coldwell Banker Realty.',       'insights.html',    insights_body),
-    ('about.html',       'About Adam Druck & the Adam Druck Group | Coldwell Banker',  'Four generations of York County roots. 200+ transactions. Licensed in PA, MD, DE. Meet Adam Druck and the Adam Druck Group team.',    'about.html',       about_body),
+    ('about.html',       'About Adam Druck & the Adam Druck Group | Coldwell Banker',  'Four generations of York County roots. 500+ transactions. Licensed in PA, MD, DE. Meet Adam Druck and the Adam Druck Group team.',    'about.html',       about_body),
 ]
 
 for slug, title, desc, canonical, body in pages:

@@ -1587,3 +1587,36 @@ a.contact__value:hover { color: var(--celestial) !important; }
 }
 .about-lead__body .btn { margin-top: 1rem; }
 
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.office-info { padding: 0; }
+.office-info p {
+  margin: 0.35rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.9);
+}
+.office-info p a {
+  color: var(--celestial-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(65, 143, 222, 0.3);
+  transition: border-color 0.2s var(--ease);
+}
+.office-info p a:hover { border-bottom-color: var(--celestial-light); }
+.team__grid--lead {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+}
+.team__grid--lead .agent {
+  grid-column: 1;
+}
+@media (min-width: 720px) {
+  .team__grid--lead .agent {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}

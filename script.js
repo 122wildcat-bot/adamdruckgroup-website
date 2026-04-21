@@ -29,7 +29,7 @@ function buildMobileMenu() {
       <a href="/communities.html">Communities</a>
       <a href="/insights.html">Insights</a>
       <a href="/about.html">About</a>
-      <a href="/#contact">Contact</a>
+      <a href="/contact.html">Contact</a>
       <a href="https://adamdruck.sites.cbmoxi.com/search" target="_blank" rel="noopener">Search Homes</a>
     </nav>
   `;
