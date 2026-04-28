@@ -419,10 +419,15 @@
         </div>
       </div>
     </div>
-    <form class="contact__form" name="adg-contact" method="POST" data-netlify="true" netlify-honeypot="website" action="/thank-you.html">
-      <input type="hidden" name="form-name" value="adg-contact" />
+    <form class="contact__form" method="POST" action="https://formsubmit.co/yourrealtoradamd@gmail.com">
+      <!-- FormSubmit configuration -->
+      <input type="hidden" name="_subject" value="New Lead from adamdruckgroup.com" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://adamdruckgroup.com/thank-you.html" />
+      <!-- Honeypot to block spam bots (real users don't see this field) -->
       <p class="contact__form-honeypot" aria-hidden="true">
-        <label>Don't fill this out if you're human: <input name="website" tabindex="-1" autocomplete="off" /></label>
+        <label>Don't fill this out if you're human: <input name="_honey" tabindex="-1" autocomplete="off" /></label>
       </p>
       <label>
         <span>Name</span>
