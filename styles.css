@@ -1620,3 +1620,12 @@ a.contact__value:hover { color: var(--celestial) !important; }
     align-items: start;
   }
 }
+
+/* ========== Netlify Forms honeypot ========== */
+.contact__form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

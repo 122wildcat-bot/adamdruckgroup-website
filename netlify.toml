@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+  # No build step — site is plain HTML/CSS/JS
+  command = ""
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# Forms are auto-detected from data-netlify="true" attribute

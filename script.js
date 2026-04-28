@@ -52,36 +52,8 @@ navToggle?.addEventListener('click', () => {
 const _yearEl = document.getElementById('year');
 if (_yearEl) _yearEl.textContent = new Date().getFullYear();
 
-// Contact form — front-end stub (Coldwell Banker / CRM integration to be wired by IT)
-function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = Object.fromEntries(new FormData(form));
-  // For now, open a pre-filled email. Replace with API endpoint when ready.
-  const subject = encodeURIComponent(`Website Inquiry — ${formData.interest || 'General'}`);
-  const body = encodeURIComponent(
-    `Name: ${formData.name || ''}\n` +
-    `Email: ${formData.email || ''}\n` +
-    `Phone: ${formData.phone || ''}\n` +
-    `Interest: ${formData.interest || ''}\n\n` +
-    `Message:\n${formData.message || ''}`
-  );
-  window.location.href = `mailto:yourrealtoradamd@gmail.com?subject=${subject}&body=${body}`;
-
-  // Visual feedback
-  const btn = form.querySelector('button[type="submit"]');
-  const original = btn.textContent;
-  btn.textContent = 'Opening Email...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Message Sent ✓';
-    setTimeout(() => {
-      form.reset();
-      btn.textContent = original;
-      btn.disabled = false;
-    }, 2500);
-  }, 600);
-}
+// Contact form is handled natively by Netlify Forms via POST + redirect to /thank-you.html.
+// No JS submit handler needed.
 
 // Smooth-scroll for internal anchors (in case smooth behavior is off)
 document.querySelectorAll('a[href^="#"]').forEach(link => {
