@@ -24,7 +24,7 @@ AGENTS = [
         "slug": "amanda",
         "name": "Amanda Eisenhart",
         "role": "REALTOR®",
-        "bio": "Amanda brings empathy and deep market knowledge to every client relationship — a steady guide for first-time buyers and move-up families navigating the emotional side of the sale.",
+        "bio": "Amanda is a detail-oriented real estate professional who listens closely and goes the extra mile to deliver a smooth, successful experience. As a Certified Global Luxury Agent, she specializes in the luxury market while also guiding first-time homebuyers with clear, supportive expertise every step of the way.",
         "phone": "(717) 659-4844",
         "phone_href": "+17176594844",
         "email": "movewithamandae@gmail.com",
