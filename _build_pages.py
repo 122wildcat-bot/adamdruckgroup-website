@@ -301,7 +301,7 @@ invest_body = """
     <p class="page-lead__lede">
       Flips, BRRRRs, buy-and-hold, and long-term portfolio building — with an agent
       who can underwrite a deal in their head while standing in the basement.
-      Fourth-generation construction family. Off-market flow. Real numbers.
+      Local family with deep construction roots. Off-market flow. Real numbers.
     </p>
     <div class="page-lead__cta">
       <a href="/#contact" class="btn btn--primary">Get on the Deal List</a>
@@ -617,7 +617,7 @@ about_body = """
       Born in York. <span class="italic">Built for York real estate.</span>
     </h1>
     <p class="page-lead__lede">
-      Four generations of York County roots. Five hundred-plus families served across
+      Deep family roots across York County. Five hundred-plus families served across
       Pennsylvania, Maryland, and Delaware. One commitment: do right by every
       client, every time.
     </p>
@@ -709,7 +709,7 @@ pages = [
     ('invest.html',      'Real Estate Investment Services | Adam Druck Group',         'York County investor specialist: flips, BRRRR, buy-and-hold, and 1031 strategy. Off-market deal flow, underwriting, and contractor network.', 'invest.html',      invest_body),
     ('communities.html', 'Communities We Serve: PA, MD & DE | Adam Druck Group',       'York County communities and tri-state neighborhoods — Spring Garden, Dover, Dallastown, Aberdeen, Bel Air, and more.',               'communities.html', communities_body),
     ('insights.html',    'Market Insights & Reports | Adam Druck Group',               'York County market reports, investor playbooks, and buyer/seller guides from the Adam Druck Group at Coldwell Banker Realty.',       'insights.html',    insights_body),
-    ('about.html',       'About Adam Druck & the Adam Druck Group | Coldwell Banker',  'Four generations of York County roots. 500+ transactions. Licensed in PA, MD, DE. Meet Adam Druck and the Adam Druck Group team.',    'about.html',       about_body),
+    ('about.html',       'About Adam Druck & the Adam Druck Group | Coldwell Banker',  'Deep family roots across York County. 500+ transactions. Licensed in PA, MD, DE. Meet Adam Druck and the Adam Druck Group team.',    'about.html',       about_body),
 ]
 
 for slug, title, desc, canonical, body in pages:

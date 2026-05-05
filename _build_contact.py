@@ -12,7 +12,7 @@ AGENTS = [
         "slug": "adam",
         "name": "Adam Druck",
         "role": "Team Lead · REALTOR®",
-        "bio": "Fourth-generation York County native. 500+ transactions across PA, MD, and DE. Specializes in investor deals, listings, and complex buy-side negotiations.",
+        "bio": "York County native with deep family roots in the area. 500+ transactions across PA, MD, and DE. Specializes in investor deals, listings, and complex buy-side negotiations.",
         "phone": "(717) 487-2579",
         "phone_href": "+17174872579",
         "email": "yourrealtoradamd@gmail.com",
