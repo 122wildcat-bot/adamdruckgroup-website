@@ -1,0 +1,18 @@
+{
+  "name": "adg-team-suite",
+  "version": "1.0.0",
+  "description": "ADG Team Suite — one dashboard that connects every Adam Druck Group tool. Self-hosted login + launcher; never modifies the underlying tools.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.9.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

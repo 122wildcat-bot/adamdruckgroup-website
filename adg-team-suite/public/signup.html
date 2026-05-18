@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create account · ADG Team Suite</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="auth-shell">
+    <form class="auth-card" id="form">
+      <div class="logo">ADG Team Suite</div>
+      <div class="tag">Create your Adam Druck Group account</div>
+      <div class="msg" id="msg"></div>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="email" required />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="new-password" required minlength="8" />
+      </div>
+      <button class="submit" id="submit" type="submit">Create account</button>
+      <div class="alt">Already have an account? <a href="/login">Sign in</a></div>
+      <div class="muted-foot">Adam Druck Group — internal team tools</div>
+    </form>
+  </div>
+  <script>
+    const form = document.getElementById('form');
+    const msg = document.getElementById('msg');
+    const submit = document.getElementById('submit');
+
+    if (localStorage.getItem('adg_token')) location.href = '/';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.className = 'msg';
+      submit.disabled = true;
+      submit.textContent = 'Creating…';
+      try {
+        const res = await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            password: document.getElementById('password').value,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Sign up failed');
+        localStorage.setItem('adg_token', data.token);
+        location.href = '/';
+      } catch (err) {
+        msg.textContent = err.message;
+        msg.className = 'msg error';
+        submit.disabled = false;
+        submit.textContent = 'Create account';
+      }
+    });
+  </script>
+</body>
+</html>
