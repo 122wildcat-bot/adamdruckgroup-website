@@ -216,13 +216,22 @@ revealEls.forEach(el => io.observe(el));
           if (key.startsWith('_') && key !== '_honey') return; // FormSubmit config fields
           payload[key] = value;
         });
-        fetch(CRM_LEAD_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-          keepalive: true,
-          mode: 'cors',
-        }).catch(() => {});
+        // text/plain is CORS-safelisted: no preflight round-trip, so the
+        // request can't lose a race against the form's navigation to
+        // FormSubmit. sendBeacon is queued by the browser itself and
+        // survives the page unload; keepalive fetch is the fallback.
+        const body = JSON.stringify(payload);
+        const sent = navigator.sendBeacon
+          && navigator.sendBeacon(CRM_LEAD_URL, new Blob([body], { type: 'text/plain;charset=UTF-8' }));
+        if (!sent) {
+          fetch(CRM_LEAD_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+            body,
+            keepalive: true,
+            mode: 'cors',
+          }).catch(() => {});
+        }
       } catch (e) { /* never block the real submit */ }
     });
   });
