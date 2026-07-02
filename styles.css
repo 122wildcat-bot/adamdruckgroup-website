@@ -1629,3 +1629,286 @@ a.contact__value:hover { color: var(--celestial) !important; }
   height: 1px;
   overflow: hidden;
 }
+
+/* ========== TEAM HUB & AGENT DETAIL PAGES ========== */
+
+/* Team hub */
+.team-hub__hero {
+  padding: 6rem 1.5rem 3rem;
+  background: linear-gradient(180deg, #f9fafb 0%, #fff 100%);
+}
+.team-hub__hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.team-hub__lede {
+  font-size: 1.15rem;
+  color: var(--gray-600, #4b5563);
+  max-width: 720px;
+  margin: 1.25rem auto 0;
+  line-height: 1.65;
+}
+
+.team-hub__grid-section {
+  padding: 3rem 1.5rem 5rem;
+  background: #fff;
+}
+.team-hub__grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 720px) {
+  .team-hub__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .team-hub__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.team-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s var(--ease, ease), box-shadow 0.2s var(--ease, ease);
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(1, 33, 105, 0.10);
+}
+.team-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.team-card__photo {
+  aspect-ratio: 4 / 5;
+  background: #f3f4f6;
+  overflow: hidden;
+}
+.team-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.team-card__body {
+  padding: 1.5rem;
+}
+.team-card__role {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--celestial, #418FDE);
+  margin: 0 0 0.5rem;
+}
+.team-card__name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  margin: 0 0 0.75rem;
+  color: var(--imperial, #012169);
+}
+.team-card__bio {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--gray-700, #374151);
+  margin: 0 0 1rem;
+}
+.team-card__contact {
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem;
+}
+.team-card__contact a {
+  color: var(--imperial, #012169);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(1, 33, 105, 0.2);
+}
+.team-card__cta {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--celestial, #418FDE);
+  margin-top: 0.5rem;
+}
+
+.team-hub__cta {
+  padding: 5rem 1.5rem;
+  background: var(--imperial, #012169);
+  color: #fff;
+  text-align: center;
+}
+.team-hub__cta-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.team-hub__cta .eyebrow { color: var(--celestial-light, #7fb3e8); }
+.team-hub__cta .section-title { color: #fff; }
+.team-hub__cta p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin: 1rem 0 2rem;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Individual agent detail page */
+.agent-hero {
+  padding: 5rem 1.5rem 3rem;
+  background: linear-gradient(180deg, #f9fafb 0%, #fff 100%);
+}
+.agent-hero__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 860px) {
+  .agent-hero__inner {
+    grid-template-columns: 340px 1fr;
+    gap: 3.5rem;
+  }
+}
+.agent-hero__photo {
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f3f4f6;
+  box-shadow: 0 10px 30px rgba(1, 33, 105, 0.12);
+}
+.agent-hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.agent-hero__name {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  line-height: 1.05;
+  margin: 0.75rem 0 0.5rem;
+  color: var(--imperial, #012169);
+}
+@media (min-width: 860px) {
+  .agent-hero__name { font-size: 3.75rem; }
+}
+.agent-hero__role {
+  font-size: 1rem;
+  color: var(--celestial, #418FDE);
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+}
+.agent-hero__lede {
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--gray-700, #374151);
+  margin: 0 0 1.75rem;
+}
+.agent-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.agent-hero__contact {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.75rem;
+}
+.agent-hero__contact li { font-size: 0.95rem; }
+.agent-hero__contact a {
+  color: var(--imperial, #012169);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(1, 33, 105, 0.25);
+}
+
+.agent-body {
+  padding: 3rem 1.5rem 5rem;
+  background: #fff;
+}
+.agent-body__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media (min-width: 860px) {
+  .agent-body__inner {
+    grid-template-columns: 1fr 320px;
+    gap: 4rem;
+  }
+}
+.agent-body__bio .eyebrow { margin-bottom: 1rem; }
+.agent-body__bio p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--gray-700, #374151);
+  margin: 0 0 1.25rem;
+}
+.agent-body__side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.agent-side-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.agent-side-card .eyebrow { margin-bottom: 0.75rem; }
+.agent-side-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.agent-side-card ul li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  color: var(--gray-700, #374151);
+}
+.agent-side-card ul li:last-child { border-bottom: none; }
+.agent-side-card p { font-size: 0.95rem; line-height: 1.55; margin: 0; color: var(--gray-700, #374151); }
+.agent-side-card--cta {
+  background: var(--imperial, #012169);
+  color: #fff;
+  border-color: var(--imperial, #012169);
+}
+.agent-side-card--cta .eyebrow { color: var(--celestial-light, #7fb3e8); }
+.agent-side-card--cta p { color: rgba(255,255,255,0.9); margin-bottom: 1rem; }
+
+.btn--block { display: block; width: 100%; text-align: center; }
+.btn--ghost {
+  background: transparent;
+  color: var(--imperial, #012169);
+  border: 1px solid var(--imperial, #012169);
+}
+
+.agent-team-cta {
+  padding: 4rem 1.5rem;
+  background: #f9fafb;
+  text-align: center;
+}
+.agent-team-cta__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.agent-team-cta p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--gray-700, #374151);
+  margin: 1rem 0 2rem;
+}
