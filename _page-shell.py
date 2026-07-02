@@ -116,6 +116,7 @@ def shell(title, description, canonical_slug, body_html, extra_head=""):
 <meta name="theme-color" content="#012169" />
 <meta name="author" content="Adam Druck Group" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="google-site-verification" content="1WGCk5WyM1KNoxqdy_fbgdbiVcqvBEbPIqIQ0wHMTqg" />
 
 <!-- Canonical -->
 <link rel="canonical" href="{canonical_url}" />
