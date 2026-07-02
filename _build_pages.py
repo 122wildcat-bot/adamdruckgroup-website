@@ -171,7 +171,16 @@ sell_body = """
           realistic price range. Usually within one business day.
         </p>
       </div>
-      <form class="valuation-form" onsubmit="handleValuation(event)">
+      <form class="valuation-form" method="POST" action="https://formsubmit.co/yourrealtoradamd@gmail.com">
+        <!-- FormSubmit configuration -->
+        <input type="hidden" name="_subject" value="Home Valuation Request from adamdruckgroup.com" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://adamdruckgroup.com/thank-you.html" />
+        <!-- Honeypot to block spam bots (real users don't see this field) -->
+        <p class="contact__form-honeypot" aria-hidden="true">
+          <label>Don't fill this out if you're human: <input name="_honey" tabindex="-1" autocomplete="off" /></label>
+        </p>
         <div>
           <label>Property address</label>
           <input name="address" placeholder="123 Main St, York PA 17402" required />
@@ -262,30 +271,6 @@ sell_body = """
     </div>
   </div>
 </section>
-
-<script>
-function handleValuation(e) {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target));
-  const subject = encodeURIComponent('Home Valuation Request — ' + (data.address || ''));
-  const body = encodeURIComponent(
-    'Address: ' + (data.address || '') + '\\n' +
-    'Email: ' + (data.email || '') + '\\n' +
-    'Phone: ' + (data.phone || '') + '\\n' +
-    'Timeline: ' + (data.timeline || '') + '\\n\\n' +
-    'Please send a complimentary market valuation for the above property.'
-  );
-  window.location.href = 'mailto:yourrealtoradamd@gmail.com?subject=' + subject + '&body=' + body;
-  const btn = e.target.querySelector('button[type="submit"]');
-  const original = btn.textContent;
-  btn.textContent = 'Opening Email...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Request Sent ✓';
-    setTimeout(() => { e.target.reset(); btn.textContent = original; btn.disabled = false; }, 2500);
-  }, 600);
-}
-</script>
 """
 
 # ======================================================================
