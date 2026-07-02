@@ -27,6 +27,7 @@ function buildMobileMenu() {
       <a href="/sell.html">Sell</a>
       <a href="/invest.html">Invest</a>
       <a href="/communities.html">Communities</a>
+      <a href="/home-value.html">Home Value</a>
       <a href="/insights.html">Insights</a>
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
