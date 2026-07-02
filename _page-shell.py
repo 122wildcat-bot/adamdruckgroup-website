@@ -172,6 +172,7 @@ def shell(title, description, canonical_slug, body_html, extra_head=""):
       <a href="/sell.html">Sell</a>
       <a href="/invest.html">Invest</a>
       <a href="/communities.html">Communities</a>
+      <a href="/home-value.html">Home Value</a>
       <a href="/insights.html">Insights</a>
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
@@ -254,6 +255,9 @@ def shell(title, description, canonical_slug, body_html, extra_head=""):
 </footer>
 
 <script src="/script.js"></script>
+<!-- Privacy-friendly analytics (GoatCounter). Claim the site code
+     'adamdruckgroup' at goatcounter.com to activate; harmless no-op until then. -->
+<script data-goatcounter="https://adamdruckgroup.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
 """

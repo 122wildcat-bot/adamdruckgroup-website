@@ -507,8 +507,8 @@ insights_body = """
       grounded in actual York County transactions and data.
     </p>
     <p style="color: var(--muted); font-style: italic; font-family: var(--serif); font-size: 1.1rem;">
-      First articles publishing soon. Want notes delivered as they go live?
-      <a href="/#contact" style="color: var(--cb-blue); text-decoration: underline;">Join the list.</a>
+      Want new notes delivered as they publish?
+      <a href="/contact.html#message" style="color: var(--cb-blue); text-decoration: underline;">Join the list.</a>
     </p>
   </div>
 </section>
@@ -519,60 +519,60 @@ insights_body = """
       <article class="post">
         <div class="post__cover post__cover--p1"><span class="post__cover-mark">&ldquo;</span></div>
         <div class="post__body">
-          <p class="post__meta">Market Report &middot; Coming Soon</p>
-          <h3 class="post__title">Q1 York County: Inventory, Pricing &amp; What Spring Actually Looks Like</h3>
+          <p class="post__meta">Market Report</p>
+          <h3 class="post__title"><a href="/insights/york-county-market-indicators.html" style="color: inherit; text-decoration: none;">Q1 York County: Inventory, Pricing &amp; What Spring Actually Looks Like</a></h3>
           <p class="post__dek">A clear read on whether spring will behave like last year — with charts that actually matter to buyers, sellers, and investors.</p>
-          <span class="post__tag">Coming Soon</span>
+          <a class="post__tag" href="/insights/york-county-market-indicators.html">Read the article &rarr;</a>
         </div>
       </article>
 
       <article class="post">
         <div class="post__cover post__cover--p2"><span class="post__cover-mark">&ldquo;</span></div>
         <div class="post__body">
-          <p class="post__meta">Investor Guide &middot; Coming Soon</p>
-          <h3 class="post__title">The 70% Rule, Reconsidered: Flip Math for York's Real Margins</h3>
+          <p class="post__meta">Investor Guide</p>
+          <h3 class="post__title"><a href="/insights/seventy-percent-rule-reconsidered.html" style="color: inherit; text-decoration: none;">The 70% Rule, Reconsidered: Flip Math for York's Real Margins</a></h3>
           <p class="post__dek">Why the standard formula misses local realities — and how we actually underwrite the deals we bring investors.</p>
-          <span class="post__tag">Coming Soon</span>
+          <a class="post__tag" href="/insights/seventy-percent-rule-reconsidered.html">Read the article &rarr;</a>
         </div>
       </article>
 
       <article class="post">
         <div class="post__cover post__cover--p3"><span class="post__cover-mark">&ldquo;</span></div>
         <div class="post__body">
-          <p class="post__meta">First-Time Buyers &middot; Coming Soon</p>
-          <h3 class="post__title">Pennsylvania First-Time Buyer Programs Most Lenders Won't Mention</h3>
+          <p class="post__meta">First-Time Buyers</p>
+          <h3 class="post__title"><a href="/insights/pa-first-time-buyer-programs.html" style="color: inherit; text-decoration: none;">Pennsylvania First-Time Buyer Programs Most Lenders Won't Mention</a></h3>
           <p class="post__dek">Down-payment assistance, PHFA loan structures, and tax credits that quietly save thousands at closing.</p>
-          <span class="post__tag">Coming Soon</span>
+          <a class="post__tag" href="/insights/pa-first-time-buyer-programs.html">Read the article &rarr;</a>
         </div>
       </article>
 
       <article class="post">
         <div class="post__cover post__cover--p4"><span class="post__cover-mark">&ldquo;</span></div>
         <div class="post__body">
-          <p class="post__meta">Sellers &middot; Coming Soon</p>
-          <h3 class="post__title">Pricing Strategy: Why &lsquo;Just List High&rsquo; Costs You Money</h3>
+          <p class="post__meta">Sellers</p>
+          <h3 class="post__title"><a href="/insights/pricing-strategy-list-high-costs-money.html" style="color: inherit; text-decoration: none;">Pricing Strategy: Why &lsquo;Just List High&rsquo; Costs You Money</a></h3>
           <p class="post__dek">The data behind multiple-offer pricing — and what to actually do in a normalizing market.</p>
-          <span class="post__tag">Coming Soon</span>
+          <a class="post__tag" href="/insights/pricing-strategy-list-high-costs-money.html">Read the article &rarr;</a>
         </div>
       </article>
 
       <article class="post">
         <div class="post__cover post__cover--p5"><span class="post__cover-mark">&ldquo;</span></div>
         <div class="post__body">
-          <p class="post__meta">Investor Case Study &middot; Coming Soon</p>
-          <h3 class="post__title">BRRRR in York County: A Real Deal, From Acquisition to Refi</h3>
+          <p class="post__meta">Investor Case Study</p>
+          <h3 class="post__title"><a href="/insights/brrrr-york-county-walkthrough.html" style="color: inherit; text-decoration: none;">BRRRR in York County: A Real Deal, From Acquisition to Refi</a></h3>
           <p class="post__dek">Walking through a single-family project with honest numbers — purchase, rehab, rent, refinance, and long-term hold economics.</p>
-          <span class="post__tag">Coming Soon</span>
+          <a class="post__tag" href="/insights/brrrr-york-county-walkthrough.html">Read the article &rarr;</a>
         </div>
       </article>
 
       <article class="post">
         <div class="post__cover post__cover--p6"><span class="post__cover-mark">&ldquo;</span></div>
         <div class="post__body">
-          <p class="post__meta">Neighborhood Spotlight &middot; Coming Soon</p>
-          <h3 class="post__title">Why Dover Township Deserves a Second Look</h3>
+          <p class="post__meta">Neighborhood Spotlight</p>
+          <h3 class="post__title"><a href="/insights/dover-township-second-look.html" style="color: inherit; text-decoration: none;">Why Dover Township Deserves a Second Look</a></h3>
           <p class="post__dek">Rents, vacancies, schools, and the development pipeline — the full picture behind a market that's quietly moving.</p>
-          <span class="post__tag">Coming Soon</span>
+          <a class="post__tag" href="/insights/dover-township-second-look.html">Read the article &rarr;</a>
         </div>
       </article>
     </div>
@@ -688,7 +688,86 @@ about_body = """
 </section>
 """
 
+# ======================================================================
+# HOME VALUE (lead magnet)
+# ======================================================================
+home_value_body = """
+<section class="page-lead">
+  <div class="page-lead__inner">
+    <p class="eyebrow page-lead__eyebrow">Complimentary &amp; No Obligation</p>
+    <h1 class="page-lead__title">
+      What&rsquo;s your home <span class="italic">actually worth?</span>
+    </h1>
+    <p class="page-lead__lede">
+      Not an algorithm&rsquo;s guess. A real local valuation built from actual
+      comparable sales and the market your street is in right now &mdash;
+      prepared by the team, usually within one business day.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="request">
+  <div class="section__inner">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">How it works</p>
+        <h2 class="section-title">Three steps. <span class="italic">One business day.</span></h2>
+        <ul class="feature-list" style="margin-top: 2rem;">
+          <li><div class="ico">1</div><div>
+            <h3>Tell us the address</h3>
+            <p>That&rsquo;s genuinely all we need to start &mdash; the form takes under a minute.</p>
+          </div></li>
+          <li><div class="ico">2</div><div>
+            <h3>We run the real analysis</h3>
+            <p>Recent settled sales, active competition, condition and street-level factors an algorithm can&rsquo;t see.</p>
+          </div></li>
+          <li><div class="ico">3</div><div>
+            <h3>You get a straight answer</h3>
+            <p>A realistic range and what it means &mdash; whether you&rsquo;re selling this spring or just keeping score.</p>
+          </div></li>
+        </ul>
+      </div>
+      <form class="contact__form" method="POST" action="https://formsubmit.co/yourrealtoradamd@gmail.com">
+        <input type="hidden" name="_subject" value="Home Value Request from adamdruckgroup.com" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://adamdruckgroup.com/thank-you.html" />
+        <p class="contact__form-honeypot" aria-hidden="true">
+          <label>Don&rsquo;t fill this out if you&rsquo;re human: <input name="_honey" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <label class="contact__form-full">
+          <span>Property address</span>
+          <input type="text" name="address" placeholder="123 Main St, York PA 17402" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          <span>Phone (optional)</span>
+          <input type="tel" name="phone" />
+        </label>
+        <label class="contact__form-full">
+          <span>Timeline</span>
+          <select name="timeline">
+            <option>Within 30 days</option>
+            <option>1&ndash;3 months</option>
+            <option>3&ndash;6 months</option>
+            <option>Just curious for now</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn--primary contact__form-full">Get My Home&rsquo;s Value</button>
+        <p class="contact__form-note contact__form-full">
+          By submitting, you agree to be contacted by the Adam Druck Group. We never share your information.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+"""
+
 pages = [
+    ('home-value.html',  "What's My Home Worth? Free Local Valuation | Adam Druck Group", 'A real local home valuation for York County, PA — actual comparable sales, not an algorithm. Complimentary from the Adam Druck Group at Coldwell Banker Realty.', 'home-value.html',  home_value_body),
     ('buy.html',         'Buy a Home in York County, PA | Adam Druck Group',           'Expert buyer representation across York County, PA and tri-state MD/DE. First-time buyers, luxury, relocation, and new construction.', 'buy.html',         buy_body),
     ('sell.html',        'Sell Your Home in York County | Adam Druck Group',           'Top-tier listing marketing and pricing strategy from the Adam Druck Group at Coldwell Banker Realty. Get a complimentary home valuation.', 'sell.html',        sell_body),
     ('invest.html',      'Real Estate Investment Services | Adam Druck Group',         'York County investor specialist: flips, BRRRR, buy-and-hold, and 1031 strategy. Off-market deal flow, underwriting, and contractor network.', 'invest.html',      invest_body),
