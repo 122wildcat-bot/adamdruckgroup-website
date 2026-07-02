@@ -197,3 +197,32 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 revealEls.forEach(el => io.observe(el));
+
+// ── CRM lead beacon ──────────────────────────────────────────────────────────
+// Every FormSubmit form also posts a copy of the lead to the ADG CRM, where it
+// becomes a contact + follow-up task automatically (POST /api/web-lead).
+// fetch({ keepalive }) lets the request finish while the form's own submission
+// navigates away to FormSubmit. Failures are silent by design — the email
+// submission remains the source of truth.
+(() => {
+  const CRM_LEAD_URL = 'https://adg-crm-production.up.railway.app/api/web-lead';
+  document.querySelectorAll('form[action*="formsubmit.co"]').forEach((form) => {
+    form.addEventListener('submit', () => {
+      try {
+        const payload = { page: location.pathname || '/' };
+        new FormData(form).forEach((value, key) => {
+          if (typeof value !== 'string') return;
+          if (key.startsWith('_') && key !== '_honey') return; // FormSubmit config fields
+          payload[key] = value;
+        });
+        fetch(CRM_LEAD_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true,
+          mode: 'cors',
+        }).catch(() => {});
+      } catch (e) { /* never block the real submit */ }
+    });
+  });
+})();
