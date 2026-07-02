@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of Python build helpers
+Disallow: /_build_pages.py
+Disallow: /_build_contact.py
+Disallow: /_build_thankyou.py
+Disallow: /_page-shell.py
+
+Sitemap: https://adamdruckgroup.com/sitemap.xml

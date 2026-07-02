@@ -1,7 +1,111 @@
 #!/usr/bin/env python3
 """Reusable shell for sub-pages. Produces a consistent header + footer."""
 
+# ---------------------------------------------------------------------------
+# Site-wide JSON-LD schema. Injected in <head> on every page.
+# This is what unlocks Google rich-result eligibility (stars, org, contact).
+# ---------------------------------------------------------------------------
+JSONLD_ORGANIZATION = """
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "@id": "https://adamdruckgroup.com/#organization",
+  "name": "Adam Druck Group",
+  "alternateName": "Adam Druck Group at Coldwell Banker Realty",
+  "url": "https://adamdruckgroup.com",
+  "logo": "https://adamdruckgroup.com/images/brand/adg-transparent.png",
+  "image": "https://adamdruckgroup.com/images/hero/york-hero.jpg",
+  "description": "Top-producing real estate team at Coldwell Banker Realty serving York County, Pennsylvania and the surrounding tri-state region. 500+ transactions closed.",
+  "telephone": "+1-717-487-2579",
+  "email": "yourrealtoradamd@gmail.com",
+  "priceRange": "$$-$$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2451 Kingston Ct",
+    "addressLocality": "York",
+    "addressRegion": "PA",
+    "postalCode": "17402",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.9648,
+    "longitude": -76.6851
+  },
+  "areaServed": [
+    {"@type": "City", "name": "York, PA"},
+    {"@type": "City", "name": "East York, PA"},
+    {"@type": "City", "name": "West York, PA"},
+    {"@type": "City", "name": "Dallastown, PA"},
+    {"@type": "City", "name": "Red Lion, PA"},
+    {"@type": "City", "name": "Dover, PA"},
+    {"@type": "City", "name": "Hanover, PA"},
+    {"@type": "City", "name": "Dillsburg, PA"},
+    {"@type": "City", "name": "Spring Grove, PA"},
+    {"@type": "City", "name": "Shrewsbury, PA"},
+    {"@type": "City", "name": "New Freedom, PA"},
+    {"@type": "City", "name": "Wrightsville, PA"},
+    {"@type": "City", "name": "Harrisburg, PA"},
+    {"@type": "State", "name": "Pennsylvania"},
+    {"@type": "State", "name": "Maryland"},
+    {"@type": "State", "name": "Delaware"}
+  ],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "license",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Pennsylvania Real Estate Commission"
+    },
+    "identifier": "RS-0038815"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Adam Druck",
+    "jobTitle": "Team Lead, REALTOR®",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Coldwell Banker Realty"
+    }
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Coldwell Banker Realty",
+    "url": "https://www.coldwellbankerhomes.com/pa/york/office/york/oid_5046/"
+  },
+  "sameAs": [
+    "https://www.zillow.com/profile/adruck6",
+    "https://www.realtor.com/realestateagents/62294176ff484fb0381df987",
+    "https://www.homes.com/real-estate-agents/adam-druck/l2j0s8e/",
+    "https://www.facebook.com/AdamDruckRealtor/",
+    "https://www.instagram.com/adam_druck_realtor/",
+    "https://www.linkedin.com/in/adam-druck-8637a41b5/",
+    "https://www.coldwellbankerhomes.com/pa/york/team/adam-druck-team/tid_4202/"
+  ]
+}
+</script>
+"""
+
+JSONLD_WEBSITE = """
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://adamdruckgroup.com/#website",
+  "url": "https://adamdruckgroup.com",
+  "name": "Adam Druck Group",
+  "publisher": {"@id": "https://adamdruckgroup.com/#organization"},
+  "inLanguage": "en-US"
+}
+</script>
+"""
+
+
 def shell(title, description, canonical_slug, body_html, extra_head=""):
+    canonical_url = f"https://adamdruckgroup.com/{canonical_slug}"
+    og_image = "https://adamdruckgroup.com/images/hero/york-hero.jpg"
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +114,28 @@ def shell(title, description, canonical_slug, body_html, extra_head=""):
 <title>{title}</title>
 <meta name="description" content="{description}" />
 <meta name="theme-color" content="#012169" />
+<meta name="author" content="Adam Druck Group" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+
+<!-- Canonical -->
+<link rel="canonical" href="{canonical_url}" />
 
 <!-- Open Graph -->
 <meta property="og:title" content="{title}" />
 <meta property="og:description" content="{description}" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://adamdruckgroup.com/{canonical_slug}" />
-<link rel="canonical" href="https://adamdruckgroup.com/{canonical_slug}" />
+<meta property="og:url" content="{canonical_url}" />
+<meta property="og:image" content="{og_image}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Adam Druck Group" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{title}" />
+<meta name="twitter:description" content="{description}" />
+<meta name="twitter:image" content="{og_image}" />
 
 <!-- Fonts: Fraunces (serif display) + Inter (sans body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,6 +144,10 @@ def shell(title, description, canonical_slug, body_html, extra_head=""):
 
 <link rel="stylesheet" href="/styles.css" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Structured data (site-wide organization + website) -->
+{JSONLD_ORGANIZATION}
+{JSONLD_WEBSITE}
 {extra_head}
 </head>
 <body class="subpage">
@@ -79,7 +202,7 @@ def shell(title, description, canonical_slug, body_html, extra_head=""):
       <p class="footer__head">Contact</p>
       <p><a href="tel:+17174872579">(717) 487-2579</a></p>
       <p><a href="mailto:yourrealtoradamd@gmail.com">yourrealtoradamd@gmail.com</a></p>
-      <p>2251 Eastern Blvd, Ste 201<br/>York, PA 17402</p>
+      <p>2451 Kingston Ct<br/>York, PA 17402</p>
     </div>
 
     <div class="footer__col">
@@ -90,7 +213,18 @@ def shell(title, description, canonical_slug, body_html, extra_head=""):
       <p><a href="/communities.html">Communities</a></p>
       <p><a href="/insights.html">Insights</a></p>
       <p><a href="/about.html">About</a></p>
+      <p><a href="/review.html">Leave a Review</a></p>
       <p><a href="https://adamdruck.sites.cbmoxi.com/search" target="_blank" rel="noopener">Search Homes</a></p>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__head">Find Us</p>
+      <p><a href="https://www.zillow.com/profile/adruck6" target="_blank" rel="noopener">Zillow</a></p>
+      <p><a href="https://www.realtor.com/realestateagents/62294176ff484fb0381df987" target="_blank" rel="noopener">Realtor.com</a></p>
+      <p><a href="https://www.homes.com/real-estate-agents/adam-druck/l2j0s8e/" target="_blank" rel="noopener">Homes.com</a></p>
+      <p><a href="https://www.facebook.com/AdamDruckRealtor/" target="_blank" rel="noopener">Facebook</a></p>
+      <p><a href="https://www.instagram.com/adam_druck_realtor/" target="_blank" rel="noopener">Instagram</a></p>
+      <p><a href="https://www.linkedin.com/in/adam-druck-8637a41b5/" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
 
     <div class="footer__col footer__col--compliance">

@@ -234,7 +234,7 @@ body = f"""
       <div>
         <div class="office-info">
           <p class="eyebrow" style="color: var(--celestial-light);">Address</p>
-          <p>2251 Eastern Blvd, Ste 201<br>York, PA 17402</p>
+          <p>2451 Kingston Ct<br>York, PA 17402</p>
           <p class="eyebrow" style="color: var(--celestial-light); margin-top:2rem;">Direct line</p>
           <p><a href="tel:+17174872579">(717) 487-2579</a></p>
           <p class="eyebrow" style="color: var(--celestial-light); margin-top:2rem;">Email</p>
