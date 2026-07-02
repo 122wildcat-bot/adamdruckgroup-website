@@ -105,6 +105,9 @@ def agent_card(agent):
 # Build body
 lead_agent = AGENTS[0]
 other_agents = AGENTS[1:]
+agent_options = "\n".join(
+    f'          <option>{a["name"]}</option>' for a in AGENTS
+)
 
 body = f"""
 <!-- ========== PAGE LEAD ========== -->
@@ -119,7 +122,7 @@ body = f"""
       reach out to any team member below — we&rsquo;ll make sure you&rsquo;re matched right.
     </p>
     <div class="page-lead__cta">
-      <a href="/#contact" class="btn btn--primary">Send a Message</a>
+      <a href="#message" class="btn btn--primary">Send a Message</a>
       <a href="tel:+17174872579" class="btn btn--ghost">(717) 487-2579</a>
     </div>
   </div>
@@ -151,6 +154,67 @@ body = f"""
     <div class="team__grid">
 {chr(10).join(agent_card(a) for a in other_agents)}
     </div>
+  </div>
+</section>
+
+<!-- ========== MESSAGE FORM ========== -->
+<section class="section" id="message">
+  <div class="section__inner">
+    <div class="section__head">
+      <p class="eyebrow">Send a message</p>
+      <h2 class="section-title">Prefer to <span class="italic">write?</span></h2>
+      <p class="page-lead__lede" style="margin-top:1rem;">
+        Tell us what you&rsquo;re looking to do and we&rsquo;ll get back to you &mdash; usually within one business day.
+      </p>
+    </div>
+    <form class="contact__form" method="POST" action="https://formsubmit.co/yourrealtoradamd@gmail.com" style="max-width: 720px; margin: 0 auto;">
+      <!-- FormSubmit configuration -->
+      <input type="hidden" name="_subject" value="New Message from adamdruckgroup.com/contact" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://adamdruckgroup.com/thank-you.html" />
+      <!-- Honeypot to block spam bots (real users don't see this field) -->
+      <p class="contact__form-honeypot" aria-hidden="true">
+        <label>Don&rsquo;t fill this out if you&rsquo;re human: <input name="_honey" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        <span>Phone</span>
+        <input type="tel" name="phone" />
+      </label>
+      <label>
+        <span>Who would you like to reach?</span>
+        <select name="agent">
+          <option>No preference</option>
+{agent_options}
+        </select>
+      </label>
+      <label>
+        <span>I&rsquo;m interested in...</span>
+        <select name="interest">
+          <option>Buying a home</option>
+          <option>Selling a home</option>
+          <option>Home valuation</option>
+          <option>Investment property</option>
+          <option>Just exploring</option>
+        </select>
+      </label>
+      <label class="contact__form-full">
+        <span>Message</span>
+        <textarea name="message" rows="4" placeholder="Tell us a bit about what you&rsquo;re looking for..."></textarea>
+      </label>
+      <button type="submit" class="btn btn--primary contact__form-full">Send Message</button>
+      <p class="contact__form-note contact__form-full">
+        By submitting, you agree to be contacted by the Adam Druck Group. We never share your information.
+      </p>
+    </form>
   </div>
 </section>
 
@@ -191,7 +255,8 @@ html = shell(
     body_html=body,
 )
 
-with open("/home/user/workspace/adamdruckgroup/contact.html", "w") as f:
+out_path = os.path.join(os.path.dirname(__file__), "contact.html")
+with open(out_path, "w") as f:
     f.write(html)
 
 print(f"✓ contact.html ({len(html):,} bytes)")
