@@ -255,7 +255,7 @@ def shell(title, description, canonical_slug, body_html, extra_head=""):
   </div>
 </footer>
 
-<script src="/script.js"></script>
+<script src="/script.js?v=20260702a"></script>
 <!-- Privacy-friendly analytics (GoatCounter). Claim the site code
      'adamdruckgroup' at goatcounter.com to activate; harmless no-op until then. -->
 <script data-goatcounter="https://adamdruckgroup.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
