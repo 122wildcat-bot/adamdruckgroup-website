@@ -236,3 +236,238 @@ revealEls.forEach(el => io.observe(el));
     });
   });
 })();
+
+// ==========================================================
+// Listings — one listings.json, split by status. No IDX feed.
+// ==========================================================
+(() => {
+  const grids = [...document.querySelectorAll('[data-group]')];
+  if (!grids.length) return;
+
+  const SEARCH_URL = 'https://adamdruck.sites.cbmoxi.com/search';
+  const BROKERAGE = 'Coldwell Banker Realty';
+  const money = new Intl.NumberFormat('en-US', {
+    style: 'currency', currency: 'USD', maximumFractionDigits: 0
+  });
+  const num = new Intl.NumberFormat('en-US');
+
+  const groupOf = (listing) => {
+    const status = String(listing.status || '').toLowerCase();
+    if (status.includes('sold')) return 'sold';
+    if (status.includes('pending') || status.includes('contract')) return 'pending';
+    return 'newest';
+  };
+
+  const statusClass = (status) => {
+    const statusText = String(status || '').toLowerCase();
+    if (statusText.includes('sold')) return 'is-sold';
+    if (statusText.includes('coming')) return 'is-soon';
+    if (statusText.includes('contract') || statusText.includes('pending')) return 'is-pending';
+    if (statusText.includes('new')) return 'is-new';
+    return 'is-active';
+  };
+
+  const safeUrl = (url) => {
+    try {
+      const parsed = new URL(url, window.location.origin);
+      if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return parsed.href;
+    } catch (e) { /* fall through */ }
+    return '';
+  };
+
+  const safeImage = (src) => {
+    if (typeof src !== 'string') return '';
+    const value = src.trim();
+    if (!value || /^\s*javascript:/i.test(value) || value.startsWith('//')) return '';
+    return value;
+  };
+
+  const canShowPhoto = (listing) => {
+    if (String(listing.side || '').toLowerCase() === 'buyer') return false;
+    if (listing.photoAllowed === false) return false;
+    return !!safeImage(listing.image);
+  };
+
+  const formatDate = (iso) => {
+    if (typeof iso !== 'string' || !iso) return '';
+    const parts = iso.split('-').map(Number);
+    if (parts.length < 3 || parts.some((part) => !part)) return '';
+    return new Date(parts[0], parts[1] - 1, parts[2]).toLocaleDateString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric'
+    });
+  };
+
+  const sideLabel = (listing) => {
+    const side = String(listing.side || '').toLowerCase();
+    if (side === 'buyer') return 'Represented the Buyer';
+    if (side === 'listing' || side === 'both') return 'Listed by Adam Druck Group';
+    return '';
+  };
+
+  const sortKey = (listing, group) => {
+    if (group === 'sold') return String(listing.closeDate || '');
+    if (group === 'pending') return String(listing.pendingDate || listing.listed || '');
+    return String(listing.listed || '');
+  };
+
+  const bathsLabel = (listing) => {
+    const full = Number(listing.bathsFull ?? listing.baths ?? 0);
+    const half = Number(listing.bathsHalf ?? 0);
+    const total = full + half * 0.5;
+    return Number.isInteger(total) ? String(total) : String(total);
+  };
+
+  const el = (tag, className, text) => {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text != null) node.textContent = text;
+    return node;
+  };
+
+  const placeholder = () => {
+    const wrap = el('div', 'listing-card__placeholder');
+    wrap.innerHTML = '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 20 L24 7 L42 20 V40 H6 Z"/><path d="M19 40 V28 H29 V40"/></svg>';
+    wrap.appendChild(el('span', null, 'Photo coming soon'));
+    return wrap;
+  };
+
+  const card = (listing) => {
+    const sold = groupOf(listing) === 'sold';
+    const showPhoto = canShowPhoto(listing);
+    const textOnly = sold && !showPhoto;
+    const article = el('article', textOnly ? 'listing-card listing-card--text' : 'listing-card');
+    const href = safeUrl(listing.url || '');
+    const linked = Boolean(href) && (!sold || /\/listing\//.test(href));
+    const destination = linked ? href : (sold ? '' : SEARCH_URL);
+    const shell = document.createElement(destination ? 'a' : 'div');
+    shell.className = 'listing-card__link';
+    if (destination) {
+      shell.href = destination;
+      shell.target = '_blank';
+      shell.rel = 'noopener';
+    }
+
+    const street = listing.address || 'Listing';
+    const place = [listing.city, listing.state].filter(Boolean).join(', ');
+    const placeLine = [place, listing.zip].filter(Boolean).join(' ');
+
+    if (!textOnly) {
+      const media = el('div', 'listing-card__media');
+      if (showPhoto) {
+        const img = document.createElement('img');
+        img.src = safeImage(listing.image);
+        img.alt = listing.imageAlt || `Photo of ${street}`;
+        img.width = 1280;
+        img.height = 854;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.addEventListener('error', () => {
+          img.remove();
+          media.appendChild(placeholder());
+        });
+        media.appendChild(img);
+      } else {
+        media.appendChild(placeholder());
+      }
+      media.appendChild(el('span', `listing-card__status ${statusClass(listing.status)}`, listing.status || 'Listing'));
+      shell.appendChild(media);
+    }
+
+    const body = el('div', 'listing-card__body');
+    if (textOnly) {
+      const meta = el('div', 'listing-card__meta');
+      meta.appendChild(el('span', `listing-card__status ${statusClass(listing.status)}`, listing.status || 'Sold'));
+      if (listing.propertyType) meta.appendChild(el('span', 'listing-card__type', listing.propertyType));
+      body.appendChild(meta);
+    }
+
+    const amount = sold ? listing.soldPrice : listing.price;
+    if (amount != null && amount !== '') {
+      body.appendChild(el('p', 'listing-card__price', money.format(Number(amount))));
+    }
+    body.appendChild(el('h3', 'listing-card__address', street));
+    if (placeLine) body.appendChild(el('p', 'listing-card__place', placeLine));
+    if (sold && !textOnly && listing.propertyType) {
+      body.appendChild(el('p', 'listing-card__type listing-card__type--inline', listing.propertyType));
+    }
+
+    const facts = [];
+    if (listing.beds != null && listing.beds !== '') facts.push(`${listing.beds} bd`);
+    if (listing.bathsFull != null || listing.bathsHalf != null) facts.push(`${bathsLabel(listing)} ba`);
+    if (listing.sqft) facts.push(`${num.format(Number(listing.sqft))} sq ft`);
+    if (facts.length) body.appendChild(el('p', 'listing-card__facts', facts.join(' · ')));
+
+    if (sold && listing.closeDate) {
+      body.appendChild(el('p', 'listing-card__closed', `Closed ${formatDate(listing.closeDate)}`));
+    }
+    if (sold) {
+      const label = sideLabel(listing);
+      if (label) body.appendChild(el('p', 'listing-card__side', label));
+    }
+
+    body.appendChild(el('p', 'listing-card__broker', String(listing.brokerage || BROKERAGE).trim() || BROKERAGE));
+    if (listing.mls) body.appendChild(el('p', 'listing-card__mls', `MLS #${listing.mls}`));
+    if (destination && !sold) {
+      shell.appendChild(body);
+      const onListingPage = /\/listing\//.test(destination);
+      body.appendChild(el('p', 'listing-card__cta', onListingPage ? 'View listing' : 'Search listings'));
+    } else {
+      shell.appendChild(body);
+    }
+
+    article.appendChild(shell);
+    return article;
+  };
+
+  const showMessage = (grid, text) => {
+    grid.replaceChildren(el('p', 'listings__status', text));
+  };
+
+  fetch('/listings.json', { cache: 'no-cache' })
+    .then((res) => {
+      if (!res.ok) throw new Error(String(res.status));
+      return res.json();
+    })
+    .then((data) => {
+      const listings = Array.isArray(data.listings) ? data.listings : [];
+      const grouped = { newest: [], pending: [], sold: [] };
+      listings.forEach((listing) => {
+        const group = groupOf(listing);
+        (grouped[group] || grouped.newest).push(listing);
+      });
+
+      document.querySelectorAll('[data-listing-section]').forEach((section) => {
+        const group = section.dataset.listingSection;
+        const count = (grouped[group] || []).length;
+        if ((group === 'pending' || group === 'sold') && count === 0) section.hidden = true;
+      });
+
+      grids.forEach((grid) => {
+        const group = grid.dataset.group;
+        let rows = (grouped[group] || []).slice();
+        rows.sort((a, b) => sortKey(b, group).localeCompare(sortKey(a, group)));
+        if (group === 'sold' && grid.dataset.limit !== 'all') {
+          const limit = Number(data.homepageSoldLimit) || 6;
+          rows = rows.slice(0, limit);
+        }
+        if (!rows.length) {
+          showMessage(grid, group === 'newest' ? 'No listings to show right now.' : 'Nothing to show yet.');
+          return;
+        }
+        grid.replaceChildren(...rows.map(card));
+      });
+
+      const summary = document.getElementById('sold-summary');
+      if (summary && grouped.sold.length) {
+        const dates = grouped.sold.map((row) => row.closeDate).filter(Boolean).sort();
+        const span = dates.length
+          ? `, ${formatDate(dates[0])} through ${formatDate(dates[dates.length - 1])}`
+          : '';
+        summary.textContent = `${grouped.sold.length} closings${span}. Newest first.`;
+      }
+    })
+    .catch(() => {
+      grids.forEach((grid) => showMessage(grid, 'Listings could not be loaded.'));
+    });
+})();
+

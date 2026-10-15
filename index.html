@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=20261015c" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
 <!-- Structured data: RealEstateAgent / Organization -->
@@ -187,6 +187,37 @@
       <p class="stat__num">5★</p>
       <p class="stat__label">Client-Rated Service</p>
     </div>
+  </div>
+</section>
+
+<!-- ========== NEWEST LISTINGS ========== -->
+<section class="listings" id="listings" data-listing-section="newest" aria-labelledby="listings-title">
+  <div class="listings__inner">
+    <div class="listings__header">
+      <div>
+        <p class="eyebrow">On the market</p>
+        <h2 class="section-title" id="listings-title">
+          <span class="serif">Newest listings.</span>
+          <span class="serif italic">Right now.</span>
+        </h2>
+      </div>
+      <a href="https://adamdruck.sites.cbmoxi.com/search" class="btn btn--primary" target="_blank" rel="noopener">See all listings</a>
+    </div>
+    <div class="listings__grid" id="listings-grid" data-group="newest" aria-live="polite">
+      <p class="listings__status">Loading listings…</p>
+    </div>
+    <noscript>
+      <p class="listings__status">
+        <a href="https://adamdruck.sites.cbmoxi.com/search" target="_blank" rel="noopener">See all listings</a>
+        on Coldwell Banker.
+      </p>
+    </noscript>
+    <p class="listings__compliance">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1v-9z"/>
+      </svg>
+      Equal Housing Opportunity. Listed by Coldwell Banker Realty. Each office is independently owned and operated.
+    </p>
   </div>
 </section>
 
@@ -475,6 +506,55 @@
   </div>
 </section>
 
+<!-- ========== PENDING ========== -->
+<section class="listings listings--plain" id="pending" data-listing-section="pending" aria-labelledby="pending-title">
+  <div class="listings__inner">
+    <div class="listings__header">
+      <div>
+        <p class="eyebrow">Under contract</p>
+        <h2 class="section-title" id="pending-title">
+          <span class="serif">Pending.</span>
+          <span class="serif italic">On the way to closing.</span>
+        </h2>
+      </div>
+    </div>
+    <div class="listings__grid" id="pending-grid" data-group="pending" aria-live="polite">
+      <p class="listings__status">Loading listings…</p>
+    </div>
+    <p class="listings__compliance">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1v-9z"/>
+      </svg>
+      Equal Housing Opportunity. Listed by Coldwell Banker Realty. Each office is independently owned and operated.
+    </p>
+  </div>
+</section>
+
+<!-- ========== RECENTLY SOLD ========== -->
+<section class="listings" id="sold" data-listing-section="sold" aria-labelledby="sold-title">
+  <div class="listings__inner">
+    <div class="listings__header">
+      <div>
+        <p class="eyebrow">Recently sold</p>
+        <h2 class="section-title" id="sold-title">
+          <span class="serif">Closed with the group.</span>
+          <span class="serif italic">The latest sales.</span>
+        </h2>
+      </div>
+      <a href="/sales.html" class="btn btn--primary">See all recent sales</a>
+    </div>
+    <div class="listings__grid" id="sold-grid" data-group="sold" aria-live="polite">
+      <p class="listings__status">Loading sales…</p>
+    </div>
+    <p class="listings__compliance">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1v-9z"/>
+      </svg>
+      Equal Housing Opportunity. Coldwell Banker Realty. Each office is independently owned and operated.
+    </p>
+  </div>
+</section>
+
 <!-- ========== CONTACT ========== -->
 <section class="contact" id="contact">
   <div class="contact__inner">
@@ -585,6 +665,7 @@
       <p><a href="/insights.html">Insights</a></p>
       <p><a href="/about.html">About</a></p>
       <p><a href="/review.html">Leave a Review</a></p>
+      <p><a href="/sales.html">Recent Sales</a></p>
       <p><a href="https://adamdruck.sites.cbmoxi.com/search" target="_blank" rel="noopener">Search Homes</a></p>
     </div>
 
@@ -624,7 +705,7 @@
   </div>
 </footer>
 
-<script src="script.js?v=20260702a"></script>
+<script src="script.js?v=20261015c"></script>
 <script data-goatcounter="https://adamdruckgroup.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
