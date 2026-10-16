@@ -26,6 +26,35 @@ To move a home from Newest to Pending, set `status` to `Pending` and set `pendin
 
 Remove a home by deleting its object. If it had photos, delete `images/listings/<mls-lowercase>/` when nothing else uses those files.
 
+### Add a card photo
+
+Active, Coming Soon, and Pending cards already have an `image` field. It is `null` until a photo is ready, and the card says "Photo coming soon." To fill one in:
+
+1. Save a JPEG you can verify is that property as `images/listings/<mls-in-lowercase>/front.jpg`. About 1280 pixels on the long side, JPEG quality around 70.
+2. Set these two fields on that listing and leave every other field alone:
+
+```json
+"image": "images/listings/payk2113324/front.jpg",
+"imageAlt": "Front of 653 Broadway, Hanover, PA"
+```
+
+Use the lowercase MLS number in the path. `photoAllowed` stays `true` on these rows.
+
+Still waiting for a card photo:
+
+| MLS | Status | Address |
+| --- | --- | --- |
+| `PAYK2113324` | Active | 653 Broadway, Hanover |
+| `PAAD2026056` | Active | 32 Quiet Creek Dr, Gettysburg |
+| `PAAD2025752` | Active | 2581 Old Harrisburg Rd, Unit 31, Gettysburg |
+| `PAYK2113022` | Coming Soon | 245 Abbey Dr, Mount Wolf |
+| `PAYK2107306` | Pending | 13 Maul Ave, Felton |
+| `PALA2095588` | Pending | 478 Rear Wasp St, Marietta |
+| `PAYK2109168` | Pending | 251 Highview Dr, Airville |
+| `PAYK2109526` | Pending | 426 Jennifer Dr, New Cumberland |
+
+13925 Wolf Rd already uses `images/listings/payk2113766/front.jpg` (the daytime front). Do not use the twilight front of that house. Do not set `image` on a sold row whose `side` is `buyer`.
+
 ### Add an on-market listing
 
 Copy an existing Active or Pending object and replace the values from the MLS sheet.
