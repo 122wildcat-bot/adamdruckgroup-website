@@ -53,7 +53,7 @@ These eight listings now use a photo from Adam's own gallery. `01.jpg` is the fr
 | `PAYK2109526` | Daytime front of 426 Jennifer Dr, New Cumberland |
 | `PALA2095588` | Side entry of 478 Rear Wasp St, Marietta |
 
-13925 Wolf Rd already uses `images/listings/payk2113766/front.jpg` (the daytime front). Do not use the twilight front of that house. Do not set `image` on a sold row whose `side` is `buyer`.
+13925 Wolf Rd already uses `images/listings/payk2113766/front.jpg` (the daytime front). Do not use the twilight front of that house. A sold row may use a saved front photo of that property. Leave `image` null when there is no usable photo.
 
 ### Add an on-market listing
 
@@ -95,13 +95,15 @@ Rules the importer already applies:
 - If the same address was closed once as the listing and once as the buyer, the buyer row is dropped. 433 Valley St is kept once, as the listing.
 - `AdamSide` of `Listing`, `Both`, or `Listing+Buyer` becomes `side: "listing"` and the card says "Listed by Adam Druck Group". `Buyer` becomes `side: "buyer"` and the card says "Represented the Buyer".
 - Land and commercial sales are kept. `propertyType` is the tag on the card (`Land`, `Commercial`, `Multi-Family`, `Residential`).
-- `PhotoURL` is ignored. Every sold card is photo-free until a real listing photo is added by hand.
+- `PhotoURL` is ignored. A sold photo is a file saved as `images/listings/<mls-in-lowercase>/front.jpg`. The importer keeps that photo if it is already on the row, and never copies `PhotoURL`.
 
 ### Photos on sold cards
 
-Buyer-side rows must stay `side: "buyer"`, `photoAllowed: false`, and `image: null`. Those photos belong to the other brokerage, so the page will not render an image even if one is present.
+A sold card uses `images/listings/<mls-in-lowercase>/front.jpg` when that file is a real photo of the property. Set `image`, `imageAlt`, and `photoAllowed: true`. The card lazy-loads it with the same frame as an active listing.
 
-Listing-side rows may set `image` later to a photo verified as that property. Leave `image` null until then. An import keeps a listing-side photo that was already saved for that MLS, and never copies a photo onto a buyer-side row.
+Leave `image` null when there is no usable photo: a vacant lot, a builder's representative photo, or a home with no listing photo. That card shows the navy and white Adam Druck Group mark instead of a broken image.
+
+Buyer-side rows stay `side: "buyer"`. An import keeps a front photo already saved for that MLS. It does not copy a photo onto a row that does not already have one.
 
 ### Fields
 
@@ -121,5 +123,5 @@ Listing-side rows may set `image` later to a photo verified as that property. Le
 | `listed` | `YYYY-MM-DD` | null |
 | `brokerage` | `Coldwell Banker Realty` | `Coldwell Banker Realty` |
 | `url` | Moxi page or search | null unless a real listing page is known |
-| `image` | path or null | null, unless a verified listing-side photo is added |
-| `photoAllowed` | true | true for listing side, false for buyer side |
+| `image` | path or null | path, or null when no usable photo |
+| `photoAllowed` | true | true when a front photo is saved; false on a buyer-side row with no photo |

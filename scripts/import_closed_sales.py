@@ -9,9 +9,10 @@ The team export is one file. It already includes every agent and has
 co-listings merged into a single row. Pass that file by itself. Passing an
 older per-agent export alongside it can duplicate closings.
 
-PhotoURL is ignored. Buyer-side sales never get a photo. Listing-side sales
-keep photoAllowed true and image null unless a photo was already saved on
-that MLS in listings.json.
+PhotoURL is ignored. A front photo already saved for that MLS in
+listings.json is kept, on listing-side and buyer-side rows. Rows without a
+saved photo stay image null. Buyer-side rows without a photo keep
+photoAllowed false.
 
 TeamMember is the public credit on the card ("Sold by Trevor Stuck"). Names
 are the ones used on the site, not the longer MLS legal names. ListAgent,
@@ -195,16 +196,16 @@ def sold_record(row: dict, previous: dict | None) -> dict:
     photo_allowed = side == "listing"
     image = None
     image_alt = None
-    # A listing-side photo already saved for this MLS can stay.
-    # A buyer-side sale never shows a photo, even if one was stored before.
-    if photo_allowed and previous:
-        previous_side = norm_space(str(previous.get("side", ""))).lower()
-        previous_allowed = previous.get("photoAllowed") is not False and previous_side != "buyer"
+    # A front photo already saved for this MLS stays, including a buyer-side
+    # card. The export's PhotoURL is never copied. Rows with no saved photo
+    # stay image null, and buyer-side rows in that case keep photoAllowed false.
+    if previous:
         previous_image = previous.get("image")
-        if previous_allowed and isinstance(previous_image, str) and previous_image.strip():
+        if isinstance(previous_image, str) and previous_image.strip():
             image = previous_image.strip()
             alt = previous.get("imageAlt")
             image_alt = alt if isinstance(alt, str) and alt.strip() else None
+            photo_allowed = True
 
     beds = number_or_none(row.get("Beds", ""))
     baths_full = number_or_none(row.get("BathsFull", ""))
@@ -272,8 +273,9 @@ def merge(csv_paths: list[Path], listings_path: Path = LISTINGS_PATH) -> dict:
         "Status Sold appears under Recently Sold. "
         "Sold rows are the whole Adam Druck Group, refreshed by scripts/import_closed_sales.py. "
         "Each sold row's agents list is the public credit, shown as Sold by. "
-        "Buyer-side sold rows must keep side buyer, photoAllowed false, and image null. "
-        "Listing-side sold rows may set image later to a verified photo of that property. "
+        "A sold card shows a front photo when image is a saved photo of that property. "
+        "Rows without a usable photo keep image null and the card shows the Adam Druck Group mark. "
+        "Buyer-side rows stay side buyer. "
         "Do not invent prices, dates, or photos."
     )
     listings_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")

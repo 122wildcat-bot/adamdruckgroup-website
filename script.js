@@ -283,7 +283,6 @@ revealEls.forEach(el => io.observe(el));
   };
 
   const canShowPhoto = (listing) => {
-    if (String(listing.side || '').toLowerCase() === 'buyer') return false;
     if (listing.photoAllowed === false) return false;
     return !!safeImage(listing.image);
   };
@@ -346,11 +345,17 @@ revealEls.forEach(el => io.observe(el));
     return wrap;
   };
 
+  const brandPlaceholder = () => {
+    const wrap = el('div', 'listing-card__placeholder listing-card__placeholder--brand');
+    wrap.setAttribute('aria-hidden', 'true');
+    wrap.innerHTML = '<span class="listing-card__brand-mark"><span>A</span><span>D</span><span class="is-g">G</span></span><span class="listing-card__brand-rule"></span><span class="listing-card__brand-name">Adam Druck Group</span>';
+    return wrap;
+  };
+
   const card = (listing) => {
     const sold = groupOf(listing) === 'sold';
     const showPhoto = canShowPhoto(listing);
-    const textOnly = sold && !showPhoto;
-    const article = el('article', textOnly ? 'listing-card listing-card--text' : 'listing-card');
+    const article = el('article', 'listing-card');
     const names = agentNames(listing);
     if (names.length) article.dataset.agents = names.join('|');
     const href = safeUrl(listing.url || '');
@@ -368,35 +373,29 @@ revealEls.forEach(el => io.observe(el));
     const place = [listing.city, listing.state].filter(Boolean).join(', ');
     const placeLine = [place, listing.zip].filter(Boolean).join(' ');
 
-    if (!textOnly) {
-      const media = el('div', 'listing-card__media');
-      if (showPhoto) {
-        const img = document.createElement('img');
-        img.src = safeImage(listing.image);
-        img.alt = listing.imageAlt || `Photo of ${street}`;
-        img.width = 1280;
-        img.height = 854;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.addEventListener('error', () => {
-          img.remove();
-          media.appendChild(placeholder());
-        });
-        media.appendChild(img);
-      } else {
-        media.appendChild(placeholder());
-      }
-      media.appendChild(el('span', `listing-card__status ${statusClass(listing.status)}`, listing.status || 'Listing'));
-      shell.appendChild(media);
+    const media = el('div', 'listing-card__media');
+    if (showPhoto) {
+      const img = document.createElement('img');
+      img.src = safeImage(listing.image);
+      img.alt = listing.imageAlt || `Photo of ${street}`;
+      img.width = 1280;
+      img.height = 854;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.addEventListener('error', () => {
+        img.remove();
+        media.appendChild(sold ? brandPlaceholder() : placeholder());
+      });
+      media.appendChild(img);
+    } else if (sold) {
+      media.appendChild(brandPlaceholder());
+    } else {
+      media.appendChild(placeholder());
     }
+    media.appendChild(el('span', `listing-card__status ${statusClass(listing.status)}`, listing.status || 'Listing'));
+    shell.appendChild(media);
 
     const body = el('div', 'listing-card__body');
-    if (textOnly) {
-      const meta = el('div', 'listing-card__meta');
-      meta.appendChild(el('span', `listing-card__status ${statusClass(listing.status)}`, listing.status || 'Sold'));
-      if (listing.propertyType) meta.appendChild(el('span', 'listing-card__type', listing.propertyType));
-      body.appendChild(meta);
-    }
 
     const amount = sold ? listing.soldPrice : listing.price;
     if (amount != null && amount !== '') {
@@ -404,7 +403,7 @@ revealEls.forEach(el => io.observe(el));
     }
     body.appendChild(el('h3', 'listing-card__address', street));
     if (placeLine) body.appendChild(el('p', 'listing-card__place', placeLine));
-    if (sold && !textOnly && listing.propertyType) {
+    if (sold && listing.propertyType) {
       body.appendChild(el('p', 'listing-card__type listing-card__type--inline', listing.propertyType));
     }
 

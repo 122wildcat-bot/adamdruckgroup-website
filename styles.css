@@ -1995,6 +1995,39 @@ a.contact__value:hover { color: var(--celestial) !important; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
+.listing-card__placeholder--brand {
+  color: #fff;
+  background:
+    radial-gradient(120% 90% at 50% 115%, rgba(65, 143, 222, 0.35), transparent 58%),
+    var(--cb-blue);
+  gap: 0.55rem;
+}
+.listing-card__brand-mark {
+  display: flex;
+  align-items: baseline;
+  gap: 0.02em;
+  line-height: 1;
+}
+.listing-card__placeholder--brand .listing-card__brand-mark span {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: #fff;
+}
+.listing-card__placeholder--brand .listing-card__brand-mark .is-g {
+  color: var(--celestial-light);
+}
+.listing-card__brand-rule {
+  width: 4.6rem;
+  height: 1px;
+  background: rgba(253, 252, 248, 0.92);
+  font-size: 0;
+  line-height: 0;
+}
+.listing-card__brand-name {
+  color: #fff;
+}
 .listing-card__status {
   position: absolute;
   top: 0.85rem;
