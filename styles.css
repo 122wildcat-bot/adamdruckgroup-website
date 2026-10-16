@@ -2135,6 +2135,52 @@ a.contact__value:hover { color: var(--celestial) !important; }
   color: var(--slate);
   max-width: 62ch;
 }
+
+/* Light controls on dark photography and ink bands.
+   Navy #012169 on white is 14.8:1. White on navy is 14.8:1.
+   White on ink #0E1420 is 18.4:1. All clear WCAG AA (4.5:1). */
+.hero .btn--ghost,
+.section--ink .btn--primary {
+  background: #fff;
+  color: #012169;
+  border: 1.5px solid #fff;
+}
+.hero .btn--ghost:hover,
+.section--ink .btn--primary:hover {
+  background: #012169;
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-1px);
+}
+.section--ink .btn--ghost {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff;
+}
+.section--ink .btn--ghost:hover {
+  background: #fff;
+  color: #012169;
+  border-color: #fff;
+  transform: translateY(-1px);
+}
+.hero .btn--ghost:focus-visible,
+.section--ink .btn--primary:focus-visible,
+.section--ink .btn--ghost:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .btn--ghost,
+  .section--ink .btn--primary,
+  .section--ink .btn--ghost {
+    transition: none;
+  }
+  .hero .btn--ghost:hover,
+  .section--ink .btn--primary:hover,
+  .section--ink .btn--ghost:hover {
+    transform: none;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .listing-card, .listing-card__media img { transition: none; }
   .listing-card:hover { transform: none; }
