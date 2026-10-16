@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-15",
-  "source": "On-market rows come from the Bright MLS export. Sold rows come from the closed-sales importer.",
+  "updated": "2026-10-16",
+  "source": "On-market rows come from the Bright MLS export. Sold rows come from the team closed-sales importer.",
   "searchUrl": "https://adamdruck.sites.cbmoxi.com/search",
   "listings": [
     {
@@ -229,9 +229,40 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2111662",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Residential",
+      "price": 276000,
+      "soldPrice": 276000,
+      "closeDate": "2026-10-14",
+      "pendingDate": null,
+      "address": "72 Greenfield St",
+      "city": "Manchester",
+      "state": "PA",
+      "zip": "17345",
+      "beds": 4,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 1212,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PACB2057760",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 305000,
       "soldPrice": 305000,
@@ -256,6 +287,9 @@
       "mls": "PAYK2108842",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 360000,
       "soldPrice": 360000,
@@ -277,9 +311,40 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2108908",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Residential",
+      "price": 399000,
+      "soldPrice": 399000,
+      "closeDate": "2026-09-25",
+      "pendingDate": null,
+      "address": "20 Oak Hill Dr",
+      "city": "Etters",
+      "state": "PA",
+      "zip": "17319",
+      "beds": 4,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 2424,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2108434",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 329900,
       "soldPrice": 329900,
@@ -304,6 +369,10 @@
       "mls": "PACB2057536",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 284900,
       "soldPrice": 284900,
@@ -328,6 +397,9 @@
       "mls": "PAYK2109588",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 274900,
       "soldPrice": 275000,
@@ -352,6 +424,9 @@
       "mls": "PAYK2109164",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 184900,
       "soldPrice": 184900,
@@ -376,6 +451,9 @@
       "mls": "PAYK2108604",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 349900,
       "soldPrice": 349900,
@@ -397,9 +475,39 @@
       "photoAllowed": true
     },
     {
+      "mls": "PACB2053418",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 373990,
+      "soldPrice": 373990,
+      "closeDate": "2026-08-28",
+      "pendingDate": null,
+      "address": "7 Ann St",
+      "city": "Carlisle",
+      "state": "PA",
+      "zip": "17015",
+      "beds": 3,
+      "bathsFull": 3,
+      "bathsHalf": 1,
+      "sqft": 1965,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2084250",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Commercial",
       "price": 1025000,
       "soldPrice": 900000,
@@ -424,6 +532,9 @@
       "mls": "PAYK2102774",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 469900,
       "soldPrice": 467500,
@@ -445,9 +556,67 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2106700",
+      "status": "Sold",
+      "side": "listing",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 344000,
+      "soldPrice": 344000,
+      "closeDate": "2026-08-18",
+      "pendingDate": null,
+      "address": "2056 Bridgeview Rd",
+      "city": "New Freedom",
+      "state": "PA",
+      "zip": "17349",
+      "beds": 2,
+      "bathsFull": 1,
+      "bathsHalf": 0,
+      "sqft": 1590,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": true
+    },
+    {
+      "mls": "PAYK2105832",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 335000,
+      "soldPrice": 335000,
+      "closeDate": "2026-08-17",
+      "pendingDate": null,
+      "address": "45 Mulligan Dr",
+      "city": "Etters",
+      "state": "PA",
+      "zip": "17319",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 0,
+      "sqft": 1662,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2106656",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Tyler Zeller"
+      ],
       "propertyType": "Residential",
       "price": 299999,
       "soldPrice": 305000,
@@ -469,9 +638,148 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2104310",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 260000,
+      "soldPrice": 260000,
+      "closeDate": "2026-08-14",
+      "pendingDate": null,
+      "address": "657 Kyle Rd",
+      "city": "York",
+      "state": "PA",
+      "zip": "17404",
+      "beds": 2,
+      "bathsFull": 2,
+      "bathsHalf": 0,
+      "sqft": 1050,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PAYK2106372",
+      "status": "Sold",
+      "side": "listing",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 409900,
+      "soldPrice": 409900,
+      "closeDate": "2026-08-13",
+      "pendingDate": null,
+      "address": "2380 Barrister Dr",
+      "city": "York",
+      "state": "PA",
+      "zip": "17404",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 1936,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": true
+    },
+    {
+      "mls": "PAYK2107554",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 250000,
+      "soldPrice": 250000,
+      "closeDate": "2026-08-13",
+      "pendingDate": null,
+      "address": "2432 Schultz Way",
+      "city": "York",
+      "state": "PA",
+      "zip": "17402",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 1440,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PAYK2107360",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 430000,
+      "soldPrice": 430000,
+      "closeDate": "2026-08-12",
+      "pendingDate": null,
+      "address": "1220 Futurity Dr",
+      "city": "York",
+      "state": "PA",
+      "zip": "17404",
+      "beds": 4,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 2234,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PAYK2106740",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 297000,
+      "soldPrice": 297000,
+      "closeDate": "2026-08-10",
+      "pendingDate": null,
+      "address": "116 Greystone Rd",
+      "city": "York",
+      "state": "PA",
+      "zip": "17402",
+      "beds": 3,
+      "bathsFull": 1,
+      "bathsHalf": 0,
+      "sqft": 1358,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2105958",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 255000,
       "soldPrice": 251000,
@@ -496,6 +804,9 @@
       "mls": "PAYK2106220",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 324900,
       "soldPrice": 325000,
@@ -520,6 +831,10 @@
       "mls": "PAYK2104226",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 275000,
       "soldPrice": 281000,
@@ -541,9 +856,120 @@
       "photoAllowed": true
     },
     {
+      "mls": "PACB2055656",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Residential",
+      "price": 539900,
+      "soldPrice": 539900,
+      "closeDate": "2026-07-31",
+      "pendingDate": null,
+      "address": "5269 Meadowbrook Dr",
+      "city": "Mechanicsburg",
+      "state": "PA",
+      "zip": "17050",
+      "beds": 4,
+      "bathsFull": 3,
+      "bathsHalf": 1,
+      "sqft": 2950,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PAYK2101390",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Land",
+      "price": 260000,
+      "soldPrice": 260000,
+      "closeDate": "2026-07-31",
+      "pendingDate": null,
+      "address": "Potts Hill Rd, Lot 2",
+      "city": "Etters",
+      "state": "PA",
+      "zip": "17319",
+      "beds": null,
+      "bathsFull": 0,
+      "bathsHalf": 0,
+      "sqft": null,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PAYK2106376",
+      "status": "Sold",
+      "side": "listing",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 274000,
+      "soldPrice": 274000,
+      "closeDate": "2026-07-30",
+      "pendingDate": null,
+      "address": "186 Greenleaf Rd",
+      "city": "York",
+      "state": "PA",
+      "zip": "17406",
+      "beds": 2,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 1506,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": true
+    },
+    {
+      "mls": "PADA2057466",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 472158,
+      "soldPrice": 472158,
+      "closeDate": "2026-07-30",
+      "pendingDate": null,
+      "address": "2422 Hawthorne Dr",
+      "city": "Harrisburg",
+      "state": "PA",
+      "zip": "17110",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 1851,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2102392",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 429900,
       "soldPrice": 430000,
@@ -565,9 +991,39 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2102140",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 185000,
+      "soldPrice": 185000,
+      "closeDate": "2026-07-21",
+      "pendingDate": null,
+      "address": "3419 Glen Hollow Dr",
+      "city": "Dover",
+      "state": "PA",
+      "zip": "17315",
+      "beds": 2,
+      "bathsFull": 1,
+      "bathsHalf": 1,
+      "sqft": 922,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PALA2086956",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 550000,
       "soldPrice": 525000,
@@ -589,9 +1045,66 @@
       "photoAllowed": false
     },
     {
+      "mls": "PAYK2104332",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 469000,
+      "soldPrice": 469000,
+      "closeDate": "2026-07-16",
+      "pendingDate": null,
+      "address": "1411 Crest Way",
+      "city": "York",
+      "state": "PA",
+      "zip": "17403",
+      "beds": 3,
+      "bathsFull": 3,
+      "bathsHalf": 0,
+      "sqft": 1464,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PAYK2103672",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Katie Kopp"
+      ],
+      "propertyType": "Residential",
+      "price": 401700,
+      "soldPrice": 401700,
+      "closeDate": "2026-07-16",
+      "pendingDate": null,
+      "address": "2105 Southbrook Dr",
+      "city": "York",
+      "state": "PA",
+      "zip": "17403",
+      "beds": 4,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 2165,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PADA2057146",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 257500,
       "soldPrice": 265000,
@@ -613,9 +1126,40 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAAD2023188",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Tyler Zeller"
+      ],
+      "propertyType": "Residential",
+      "price": 462500,
+      "soldPrice": 462500,
+      "closeDate": "2026-07-10",
+      "pendingDate": null,
+      "address": "536 Kuhn Fording Rd",
+      "city": "East Berlin",
+      "state": "PA",
+      "zip": "17316",
+      "beds": 3,
+      "bathsFull": 3,
+      "bathsHalf": 0,
+      "sqft": 1432,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2105030",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 350000,
       "soldPrice": 351200,
@@ -640,6 +1184,10 @@
       "mls": "PAYK2102590",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Katie Kopp"
+      ],
       "propertyType": "Residential",
       "price": 419000,
       "soldPrice": 445000,
@@ -664,6 +1212,9 @@
       "mls": "PAYK2098172",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 99900,
       "soldPrice": 80000,
@@ -688,6 +1239,9 @@
       "mls": "PAYK2102418",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 365000,
       "soldPrice": 360000,
@@ -712,6 +1266,9 @@
       "mls": "PACT2121086",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 900000,
       "soldPrice": 890000,
@@ -736,6 +1293,9 @@
       "mls": "PAYK2101748",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 517500,
       "soldPrice": 517500,
@@ -760,6 +1320,9 @@
       "mls": "PAYK2100038",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 239900,
       "soldPrice": 240000,
@@ -781,9 +1344,39 @@
       "photoAllowed": false
     },
     {
+      "mls": "PAYK2102500",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Katie Kopp"
+      ],
+      "propertyType": "Residential",
+      "price": 195000,
+      "soldPrice": 195000,
+      "closeDate": "2026-05-29",
+      "pendingDate": null,
+      "address": "1911 Pin Oak Dr, Unit 4, Unit 4",
+      "city": "York",
+      "state": "PA",
+      "zip": "17402",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 0,
+      "sqft": 1120,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2102494",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 278500,
       "soldPrice": 289000,
@@ -805,9 +1398,39 @@
       "photoAllowed": false
     },
     {
+      "mls": "PAYK2089714",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Katie Kopp"
+      ],
+      "propertyType": "Residential",
+      "price": 538125,
+      "soldPrice": 538125,
+      "closeDate": "2026-05-22",
+      "pendingDate": null,
+      "address": "10 Old Farm Ln",
+      "city": "New Freedom",
+      "state": "PA",
+      "zip": "17349",
+      "beds": 3,
+      "bathsFull": 3,
+      "bathsHalf": 1,
+      "sqft": 2240,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2099452",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 502500,
       "soldPrice": 502500,
@@ -832,6 +1455,9 @@
       "mls": "PALA2085458",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 374500,
       "soldPrice": 374500,
@@ -856,6 +1482,9 @@
       "mls": "PAYK2099278",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Land",
       "price": 75000,
       "soldPrice": 76500,
@@ -880,6 +1509,9 @@
       "mls": "PAYK2099282",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Land",
       "price": 75000,
       "soldPrice": 76500,
@@ -904,6 +1536,9 @@
       "mls": "PAPY2009094",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 264900,
       "soldPrice": 264900,
@@ -928,6 +1563,10 @@
       "mls": "PAAD2022470",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Zach Keller"
+      ],
       "propertyType": "Residential",
       "price": 249900,
       "soldPrice": 250000,
@@ -952,6 +1591,10 @@
       "mls": "PAYK2096074",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 325000,
       "soldPrice": 315000,
@@ -973,9 +1616,39 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2095506",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Katie Kopp"
+      ],
+      "propertyType": "Residential",
+      "price": 209500,
+      "soldPrice": 209500,
+      "closeDate": "2026-04-30",
+      "pendingDate": null,
+      "address": "1640 Blue Jay Dr",
+      "city": "Dover",
+      "state": "PA",
+      "zip": "17315",
+      "beds": 3,
+      "bathsFull": 1,
+      "bathsHalf": 1,
+      "sqft": 1174,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAFL2032542",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 199900,
       "soldPrice": 192000,
@@ -1000,6 +1673,10 @@
       "mls": "PAYK2099440",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 220000,
       "soldPrice": 226000,
@@ -1021,9 +1698,40 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAAD2022318",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 320000,
+      "soldPrice": 320000,
+      "closeDate": "2026-04-23",
+      "pendingDate": null,
+      "address": "311 S Columbus Ave",
+      "city": "Littlestown",
+      "state": "PA",
+      "zip": "17340",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 0,
+      "sqft": 1234,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2099144",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 315000,
       "soldPrice": 320000,
@@ -1045,9 +1753,93 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2098588",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Katie Kopp"
+      ],
+      "propertyType": "Residential",
+      "price": 289900,
+      "soldPrice": 289900,
+      "closeDate": "2026-04-14",
+      "pendingDate": null,
+      "address": "169 Rathton Rd",
+      "city": "York",
+      "state": "PA",
+      "zip": "17403",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 0,
+      "sqft": 1928,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "MDCC2019760",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 379000,
+      "soldPrice": 379000,
+      "closeDate": "2026-04-13",
+      "pendingDate": null,
+      "address": "33 Teatree Ln",
+      "city": "Elkton Md",
+      "state": "MD",
+      "zip": "21921",
+      "beds": 4,
+      "bathsFull": 3,
+      "bathsHalf": 1,
+      "sqft": 1660,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PAYK2096076",
+      "status": "Sold",
+      "side": "listing",
+      "agents": [
+        "Katie Kopp"
+      ],
+      "propertyType": "Residential",
+      "price": 205000,
+      "soldPrice": 205000,
+      "closeDate": "2026-03-20",
+      "pendingDate": null,
+      "address": "806 Pacific Ave",
+      "city": "York",
+      "state": "PA",
+      "zip": "17404",
+      "beds": 2,
+      "bathsFull": 1,
+      "bathsHalf": 0,
+      "sqft": 1056,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": true
+    },
+    {
       "mls": "PANH2009276",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 345000,
       "soldPrice": 345000,
@@ -1072,6 +1864,10 @@
       "mls": "PAYK2096300",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 339900,
       "soldPrice": 330000,
@@ -1096,6 +1892,9 @@
       "mls": "PAFL2032544",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 205900,
       "soldPrice": 196000,
@@ -1120,6 +1919,9 @@
       "mls": "MDHR2051554",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 414900,
       "soldPrice": 420000,
@@ -1144,6 +1946,9 @@
       "mls": "PAYK2097186",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 399900,
       "soldPrice": 425000,
@@ -1168,6 +1973,9 @@
       "mls": "PAYK2096118",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 190000,
       "soldPrice": 190000,
@@ -1192,6 +2000,9 @@
       "mls": "PAYK2097234",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 225000,
       "soldPrice": 225000,
@@ -1213,9 +2024,39 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2094726",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 245000,
+      "soldPrice": 245000,
+      "closeDate": "2026-02-19",
+      "pendingDate": null,
+      "address": "340 S Camp St",
+      "city": "Red Lion",
+      "state": "PA",
+      "zip": "17356",
+      "beds": 2,
+      "bathsFull": 1,
+      "bathsHalf": 1,
+      "sqft": 1001,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PACB2048556",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 299900,
       "soldPrice": 287500,
@@ -1240,6 +2081,9 @@
       "mls": "PAYK2096046",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 265000,
       "soldPrice": 265000,
@@ -1264,6 +2108,9 @@
       "mls": "PAYK2093198",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 149500,
       "soldPrice": 140000,
@@ -1288,6 +2135,9 @@
       "mls": "PAYK2094484",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Land",
       "price": 49900,
       "soldPrice": 70500,
@@ -1312,6 +2162,10 @@
       "mls": "PAYK2094048",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 385000,
       "soldPrice": 385000,
@@ -1336,6 +2190,9 @@
       "mls": "PACB2047882",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 329900,
       "soldPrice": 329900,
@@ -1360,6 +2217,9 @@
       "mls": "PAYK2095130",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 394500,
       "soldPrice": 394500,
@@ -1384,6 +2244,9 @@
       "mls": "PABK2065328",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 319900,
       "soldPrice": 330000,
@@ -1408,6 +2271,9 @@
       "mls": "PALA2078382",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 444900,
       "soldPrice": 428500,
@@ -1432,6 +2298,9 @@
       "mls": "PABK2066120",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 425000,
       "soldPrice": 420000,
@@ -1456,6 +2325,9 @@
       "mls": "PAYK2089366",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 424900,
       "soldPrice": 420000,
@@ -1477,9 +2349,39 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2093900",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 120000,
+      "soldPrice": 120000,
+      "closeDate": "2026-01-09",
+      "pendingDate": null,
+      "address": "1046 Schmuck Rd",
+      "city": "York",
+      "state": "PA",
+      "zip": "17406",
+      "beds": 3,
+      "bathsFull": 1,
+      "bathsHalf": 0,
+      "sqft": 924,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2094514",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 359000,
       "soldPrice": 360000,
@@ -1504,6 +2406,9 @@
       "mls": "PAYK2093924",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 435500,
       "soldPrice": 397000,
@@ -1528,6 +2433,10 @@
       "mls": "PAYK2092848",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Zach Keller"
+      ],
       "propertyType": "Residential",
       "price": 239900,
       "soldPrice": 245000,
@@ -1552,6 +2461,10 @@
       "mls": "PAYK2094050",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 305000,
       "soldPrice": 315000,
@@ -1573,9 +2486,40 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2093422",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Residential",
+      "price": 390000,
+      "soldPrice": 390000,
+      "closeDate": "2026-01-02",
+      "pendingDate": null,
+      "address": "125 Payne Dr",
+      "city": "Mount Wolf",
+      "state": "PA",
+      "zip": "17347",
+      "beds": 4,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 2207,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2093672",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 169000,
       "soldPrice": 165000,
@@ -1600,6 +2544,9 @@
       "mls": "PAYK2089372",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 209900,
       "soldPrice": 217500,
@@ -1621,9 +2568,39 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2094026",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Residential",
+      "price": 421500,
+      "soldPrice": 421500,
+      "closeDate": "2025-12-22",
+      "pendingDate": null,
+      "address": "760 Kise Mill Rd",
+      "city": "York Haven",
+      "state": "PA",
+      "zip": "17370",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 0,
+      "sqft": 1232,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2092800",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 359900,
       "soldPrice": 360000,
@@ -1648,6 +2625,10 @@
       "mls": "PAYK2093436",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Tyler Zeller"
+      ],
       "propertyType": "Residential",
       "price": 199999,
       "soldPrice": 215000,
@@ -1672,6 +2653,9 @@
       "mls": "PAYK2091960",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 349900,
       "soldPrice": 355000,
@@ -1693,9 +2677,39 @@
       "photoAllowed": true
     },
     {
+      "mls": "MDAA2121080",
+      "status": "Sold",
+      "side": "listing",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 440000,
+      "soldPrice": 440000,
+      "closeDate": "2025-12-12",
+      "pendingDate": null,
+      "address": "208 Magothy Beach Rd",
+      "city": "Pasadena Md",
+      "state": "MD",
+      "zip": "21122",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 0,
+      "sqft": 1356,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": true
+    },
+    {
       "mls": "PAYK2093040",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 329900,
       "soldPrice": 345000,
@@ -1720,6 +2734,9 @@
       "mls": "PAYK2090396",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 649900,
       "soldPrice": 615000,
@@ -1741,9 +2758,39 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2090636",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Zach Keller"
+      ],
+      "propertyType": "Residential",
+      "price": 289900,
+      "soldPrice": 289900,
+      "closeDate": "2025-11-26",
+      "pendingDate": null,
+      "address": "238 Perry Ave",
+      "city": "York",
+      "state": "PA",
+      "zip": "17408",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 0,
+      "sqft": 1040,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PALA2078580",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 459900,
       "soldPrice": 459900,
@@ -1765,9 +2812,39 @@
       "photoAllowed": true
     },
     {
+      "mls": "PADA2050438",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Residential",
+      "price": 375000,
+      "soldPrice": 375000,
+      "closeDate": "2025-11-14",
+      "pendingDate": null,
+      "address": "280 Keystone Dr",
+      "city": "Middletown",
+      "state": "PA",
+      "zip": "17057",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 2841,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PAYK2089306",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 474500,
       "soldPrice": 465000,
@@ -1792,6 +2869,9 @@
       "mls": "PAYK2090966",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 399900,
       "soldPrice": 370000,
@@ -1816,6 +2896,9 @@
       "mls": "PAYK2090342",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 264900,
       "soldPrice": 265000,
@@ -1837,9 +2920,67 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2085916",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Residential",
+      "price": 274900,
+      "soldPrice": 274900,
+      "closeDate": "2025-10-31",
+      "pendingDate": null,
+      "address": "2580 York Haven Rd",
+      "city": "Manchester",
+      "state": "PA",
+      "zip": "17345",
+      "beds": 2,
+      "bathsFull": 1,
+      "bathsHalf": 0,
+      "sqft": 1470,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PAYK2088964",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Katie Kopp"
+      ],
+      "propertyType": "Residential",
+      "price": 184560,
+      "soldPrice": 184560,
+      "closeDate": "2025-10-31",
+      "pendingDate": null,
+      "address": "623 Courtland St",
+      "city": "York",
+      "state": "PA",
+      "zip": "17403",
+      "beds": 4,
+      "bathsFull": 1,
+      "bathsHalf": 1,
+      "sqft": 1404,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PADA2049692",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck",
+        "Trevor Stuck"
+      ],
       "propertyType": "Residential",
       "price": 339000,
       "soldPrice": 345000,
@@ -1864,6 +3005,9 @@
       "mls": "PAYK2090086",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 515000,
       "soldPrice": 525000,
@@ -1888,6 +3032,9 @@
       "mls": "PAYK2089226",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Multi-Family",
       "price": 224900,
       "soldPrice": 218000,
@@ -1912,6 +3059,9 @@
       "mls": "PAYK2089082",
       "status": "Sold",
       "side": "listing",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 185000,
       "soldPrice": 205000,
@@ -1936,6 +3086,9 @@
       "mls": "PAYK2088994",
       "status": "Sold",
       "side": "buyer",
+      "agents": [
+        "Adam Druck"
+      ],
       "propertyType": "Residential",
       "price": 299900,
       "soldPrice": 300500,
@@ -1958,5 +3111,5 @@
     }
   ],
   "homepageSoldLimit": 6,
-  "notes": "One file drives Newest, Pending, and Recently Sold. Status Active, Coming Soon, or New Listing appears under Newest. Status Pending or Under Contract appears under Pending. Status Sold appears under Recently Sold. Sold rows are refreshed by scripts/import_closed_sales.py. Buyer-side sold rows must keep side buyer, photoAllowed false, and image null. Listing-side sold rows may set image later to a verified photo of that property. Do not invent prices, dates, or photos."
+  "notes": "One file drives Newest, Pending, and Recently Sold. Status Active, Coming Soon, or New Listing appears under Newest. Status Pending or Under Contract appears under Pending. Status Sold appears under Recently Sold. Sold rows are the whole Adam Druck Group, refreshed by scripts/import_closed_sales.py. Each sold row's agents list is the public credit, shown as Sold by. Buyer-side sold rows must keep side buyer, photoAllowed false, and image null. Listing-side sold rows may set image later to a verified photo of that property. Do not invent prices, dates, or photos."
 }

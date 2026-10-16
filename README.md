@@ -69,19 +69,31 @@ Copy an existing Active or Pending object and replace the values from the MLS sh
 
 ### Sold rows and the importer
 
-Closed sales are loaded with `scripts/import_closed_sales.py`. Teammate files use the same CSV columns (`MLS`, `Address`, `Unit`, `City`, `State`, `Zip`, `PropertyType`, `Beds`, `BathsFull`, `BathsHalf`, `SqftAboveGrade`, `ListPrice`, `ClosePrice`, `CloseDate`, `AdamSide`). Pass every file that should be on the site in one command. The script replaces the Sold rows with that set and leaves Active, Coming Soon, and Pending rows in place. If a closed MLS is still sitting in those rows, the closed row replaces it.
+Closed sales are loaded with `scripts/import_closed_sales.py`. The team export is one CSV that already includes every agent. Co-listings are one row, with both names in `TeamMember` separated by a semicolon. Pass that file by itself. The script replaces the Sold rows with that set and leaves Active, Coming Soon, and Pending rows in place. If a closed MLS is still sitting in those rows, the closed row replaces it.
 
 ```bash
-python3 scripts/import_closed_sales.py adam.csv teammate.csv
+python3 scripts/import_closed_sales.py adg-team-closed-12mo.csv
 ```
 
-Keep the CSVs out of this repo. They contain private agent remarks. The importer writes only the public card fields.
+Keep the CSVs out of this repo. They contain private agent remarks. The importer writes only the public card fields. It does not copy `ListAgent`, `CoListAgent`, `BuyerAgent`, or `PhotoURL`.
+
+`TeamMember` becomes `agents`, using the names on this site:
+
+| In the export | On the card |
+| --- | --- |
+| Adam Druck | Adam Druck |
+| Trevor Logan Stuck | Trevor Stuck |
+| Zachery E Keller | Zach Keller |
+| Katie A. Kopp | Katie Kopp |
+| Tyler John Zeller | Tyler Zeller |
+
+A card with one name says "Sold by Trevor Stuck". A card with two says "Sold by Adam Druck and Trevor Stuck". `/sales.html` has a filter for those names. A co-listed sale shows up under each agent. Amanda Eisenhart is not a separate credit in this export. Her co-listed rows are already assigned to Adam in `TeamMember`.
 
 Rules the importer already applies:
 
 - 13925 Wolf Rd and 13975 Wolf Rd are left out. They were lot sales and would sit next to the active Wolf Rd house.
 - If the same address was closed once as the listing and once as the buyer, the buyer row is dropped. 433 Valley St is kept once, as the listing.
-- `AdamSide` of `Listing` or `Both` becomes `side: "listing"` and the card says "Listed by Adam Druck Group". `Buyer` becomes `side: "buyer"` and the card says "Represented the Buyer".
+- `AdamSide` of `Listing`, `Both`, or `Listing+Buyer` becomes `side: "listing"` and the card says "Listed by Adam Druck Group". `Buyer` becomes `side: "buyer"` and the card says "Represented the Buyer".
 - Land and commercial sales are kept. `propertyType` is the tag on the card (`Land`, `Commercial`, `Multi-Family`, `Residential`).
 - `PhotoURL` is ignored. Every sold card is photo-free until a real listing photo is added by hand.
 
@@ -98,6 +110,7 @@ Listing-side rows may set `image` later to a photo verified as that property. Le
 | `mls` | yes | yes |
 | `status` | yes | `Sold` |
 | `side` | `listing` | `listing` or `buyer` |
+| `agents` | omit | public names, such as `["Trevor Stuck"]` |
 | `propertyType` | yes | yes |
 | `price` | list price | list price from the sheet; the card shows `soldPrice` |
 | `soldPrice` | null | close price |

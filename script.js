@@ -304,6 +304,21 @@ revealEls.forEach(el => io.observe(el));
     return '';
   };
 
+  const agentNames = (listing) => {
+    if (!Array.isArray(listing.agents)) return [];
+    return listing.agents
+      .map((name) => String(name || '').trim())
+      .filter(Boolean);
+  };
+
+  const agentLabel = (listing) => {
+    const names = agentNames(listing);
+    if (!names.length) return '';
+    if (names.length === 1) return `Sold by ${names[0]}`;
+    if (names.length === 2) return `Sold by ${names[0]} and ${names[1]}`;
+    return `Sold by ${names.slice(0, -1).join(', ')}, and ${names[names.length - 1]}`;
+  };
+
   const sortKey = (listing, group) => {
     if (group === 'sold') return String(listing.closeDate || '');
     if (group === 'pending') return String(listing.pendingDate || listing.listed || '');
@@ -336,6 +351,8 @@ revealEls.forEach(el => io.observe(el));
     const showPhoto = canShowPhoto(listing);
     const textOnly = sold && !showPhoto;
     const article = el('article', textOnly ? 'listing-card listing-card--text' : 'listing-card');
+    const names = agentNames(listing);
+    if (names.length) article.dataset.agents = names.join('|');
     const href = safeUrl(listing.url || '');
     const linked = Boolean(href) && (!sold || /\/listing\//.test(href));
     const destination = linked ? href : (sold ? '' : SEARCH_URL);
@@ -401,6 +418,8 @@ revealEls.forEach(el => io.observe(el));
       body.appendChild(el('p', 'listing-card__closed', `Closed ${formatDate(listing.closeDate)}`));
     }
     if (sold) {
+      const credit = agentLabel(listing);
+      if (credit) body.appendChild(el('p', 'listing-card__agent', credit));
       const label = sideLabel(listing);
       if (label) body.appendChild(el('p', 'listing-card__side', label));
     }
@@ -421,6 +440,65 @@ revealEls.forEach(el => io.observe(el));
 
   const showMessage = (grid, text) => {
     grid.replaceChildren(el('p', 'listings__status', text));
+  };
+
+  const AGENT_ORDER = ['Adam Druck', 'Trevor Stuck', 'Zach Keller', 'Katie Kopp', 'Tyler Zeller'];
+
+  const mountAgentFilter = (grid, rows) => {
+    const host = document.getElementById('sales-filter');
+    const options = host && host.querySelector('.sales-filter__options');
+    const status = document.getElementById('sales-filter-status');
+    if (!host || !options) return;
+
+    const counts = new Map();
+    rows.forEach((row) => {
+      agentNames(row).forEach((name) => counts.set(name, (counts.get(name) || 0) + 1));
+    });
+    const names = [...counts.keys()].sort((a, b) => {
+      const ia = AGENT_ORDER.indexOf(a);
+      const ib = AGENT_ORDER.indexOf(b);
+      if (ia === -1 && ib === -1) return a.localeCompare(b);
+      if (ia === -1) return 1;
+      if (ib === -1) return -1;
+      return ia - ib;
+    });
+
+    const apply = (name) => {
+      let shown = 0;
+      [...grid.children].forEach((card) => {
+        if (!card.classList || !card.classList.contains('listing-card')) return;
+        const agents = (card.dataset.agents || '').split('|').filter(Boolean);
+        const match = name === 'all' || agents.includes(name);
+        card.hidden = !match;
+        if (match) shown += 1;
+      });
+      [...options.children].forEach((btn) => {
+        btn.setAttribute('aria-pressed', btn.dataset.agent === name ? 'true' : 'false');
+      });
+      if (status) {
+        status.textContent = name === 'all'
+          ? `Showing all ${shown} sales.`
+          : `Showing ${shown} ${shown === 1 ? 'sale' : 'sales'} for ${name}.`;
+      }
+    };
+
+    const button = (name, label) => {
+      const node = document.createElement('button');
+      node.type = 'button';
+      node.className = 'sales-filter__btn';
+      node.dataset.agent = name;
+      node.textContent = label;
+      node.setAttribute('aria-pressed', name === 'all' ? 'true' : 'false');
+      node.addEventListener('click', () => apply(name));
+      return node;
+    };
+
+    options.replaceChildren(
+      button('all', `All · ${rows.length}`),
+      ...names.map((name) => button(name, `${name} · ${counts.get(name)}`))
+    );
+    if (status) status.textContent = `Showing all ${rows.length} sales.`;
+    host.hidden = false;
   };
 
   fetch('/listings.json', { cache: 'no-cache' })
@@ -455,6 +533,7 @@ revealEls.forEach(el => io.observe(el));
           return;
         }
         grid.replaceChildren(...rows.map(card));
+        if (group === 'sold' && grid.dataset.limit === 'all') mountAgentFilter(grid, rows);
       });
 
       const summary = document.getElementById('sold-summary');
