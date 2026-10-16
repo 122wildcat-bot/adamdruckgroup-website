@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/styles.css?v=20261016a" />
+<link rel="stylesheet" href="/styles.css?v=20261016b" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body class="subpage">
@@ -64,6 +64,11 @@
 
 <section class="listings listings--plain" id="sold" data-listing-section="sold" aria-labelledby="sold-page-title">
   <div class="listings__inner">
+    <div class="sales-filter" id="sales-filter" hidden>
+      <p class="sales-filter__label" id="sales-filter-label">Filter by agent</p>
+      <div class="sales-filter__options" role="group" aria-labelledby="sales-filter-label"></div>
+      <p class="sales-filter__status" id="sales-filter-status" aria-live="polite"></p>
+    </div>
     <div class="listings__grid" id="sold-all" data-group="sold" data-limit="all" aria-live="polite">
       <p class="listings__status">Loading sales…</p>
     </div>
@@ -138,7 +143,7 @@
   </div>
 </footer>
 
-<script src="/script.js?v=20261015c"></script>
+<script src="/script.js?v=20261016b"></script>
 <script data-goatcounter="https://adamdruckgroup.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -2119,11 +2119,62 @@ a.contact__value:hover { color: var(--celestial) !important; }
   background: var(--ink);
   color: #fff;
 }
+.listing-card__agent {
+  margin: 0.55rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cb-blue);
+  line-height: 1.35;
+}
 .listing-card__side {
-  margin: 0.85rem 0 0;
+  margin: 0.55rem 0 0;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--slate);
+}
+.listing-card__agent + .listing-card__side {
+  margin-top: 0.1rem;
+}
+.sales-filter {
+  margin: 0 0 1.75rem;
+}
+.sales-filter__label {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--celestial);
+}
+.sales-filter__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.sales-filter__btn {
+  min-height: 44px;
+  padding: 0.55rem 0.9rem;
+  border: 1.5px solid var(--cb-blue);
+  background: #fff;
+  color: var(--cb-blue);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+.sales-filter__btn[aria-pressed="true"],
+.sales-filter__btn:hover {
+  background: var(--cb-blue);
+  color: #fff;
+}
+.sales-filter__btn:focus-visible {
+  outline: 3px solid var(--cb-blue);
+  outline-offset: 3px;
+}
+.sales-filter__status {
+  margin: 0.75rem 0 0;
+  color: var(--slate);
+  font-size: 0.9rem;
 }
 .listing-card__closed {
   margin: 0.35rem 0 0;

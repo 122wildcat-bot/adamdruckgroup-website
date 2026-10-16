@@ -3,18 +3,25 @@
 
 The site reads one file, listings.json. On-market rows (Active, Coming Soon,
 Pending, Under Contract) stay as they are. This importer replaces Sold rows
-with the union of the CSV files you pass, so teammate exports in the same
-format can be added by running the script again with every file included.
+with the union of the CSV files you pass.
+
+The team export is one file. It already includes every agent and has
+co-listings merged into a single row. Pass that file by itself. Passing an
+older per-agent export alongside it can duplicate closings.
 
 PhotoURL is ignored. Buyer-side sales never get a photo. Listing-side sales
 keep photoAllowed true and image null unless a photo was already saved on
 that MLS in listings.json.
 
+TeamMember is the public credit on the card ("Sold by Trevor Stuck"). Names
+are the ones used on the site, not the longer MLS legal names. ListAgent,
+CoListAgent, and BuyerAgent are not copied onto the card.
+
 Do not commit the source CSVs. They include private agent fields. The JSON
 written here has only the public card fields.
 
 Usage:
-  python3 scripts/import_closed_sales.py adam.csv teammate.csv
+  python3 scripts/import_closed_sales.py adg-team-closed-12mo.csv
 """
 
 from __future__ import annotations
@@ -36,6 +43,20 @@ PROPERTY_TAGS = {
     "commercial": "Commercial",
     "multi-family": "Multi-Family",
     "multifamily": "Multi-Family",
+}
+
+# MLS legal names -> the name on adamdruckgroup.com.
+DISPLAY_NAMES = {
+    "adam druck": "Adam Druck",
+    "trevor logan stuck": "Trevor Stuck",
+    "trevor stuck": "Trevor Stuck",
+    "zachery e keller": "Zach Keller",
+    "zachery keller": "Zach Keller",
+    "zach keller": "Zach Keller",
+    "katie a kopp": "Katie Kopp",
+    "katie kopp": "Katie Kopp",
+    "tyler john zeller": "Tyler Zeller",
+    "tyler zeller": "Tyler Zeller",
 }
 
 
@@ -79,13 +100,36 @@ def property_tag(value: str) -> str:
 
 
 def side_of(value: str) -> str:
-    raw = norm_space(value).lower()
+    raw = norm_space(value).lower().replace(" ", "")
     if raw == "buyer":
         return "buyer"
-    if raw in {"listing", "both"}:
-        # "Both" is his listing and his buyer. Show it once, as the listing.
+    # "Both" and "Listing+Buyer" mean the team listed it and brought the buyer.
+    # Show that closing once, as the listing.
+    if raw in {"listing", "both", "listing+buyer"}:
         return "listing"
     raise ValueError(f"Unknown AdamSide value: {value!r}")
+
+
+def display_agent(name: str) -> str:
+    key = norm_space(name).lower().replace(".", "")
+    key = re.sub(r"\s+", " ", key).strip()
+    shown = DISPLAY_NAMES.get(key)
+    if shown:
+        return shown
+    print(f"Warning: team member {name!r} has no public display name.", file=sys.stderr)
+    return norm_space(name)
+
+
+def agents_of(value: str) -> list[str]:
+    names = []
+    for part in (value or "").split(";"):
+        part = norm_space(part)
+        if not part:
+            continue
+        shown = display_agent(part)
+        if shown not in names:
+            names.append(shown)
+    return names
 
 
 def read_csv(path: Path) -> list[dict]:
@@ -99,6 +143,8 @@ def prepare_rows(csv_paths: list[Path]) -> tuple[list[dict], dict]:
         "read": 0,
         "excluded_wolf_lots": 0,
         "dropped_buyer_duplicates": 0,
+        "dropped_mls_duplicates": 0,
+        "missing_team_member": 0,
         "files": [str(path) for path in csv_paths],
     }
     for path in csv_paths:
@@ -124,11 +170,28 @@ def prepare_rows(csv_paths: list[Path]) -> tuple[list[dict], dict]:
             kept.extend(listing_rows)
         else:
             kept.extend(group)
-    return kept, stats
+
+    by_mls: dict[str, dict] = {}
+    order: list[str] = []
+    for row in kept:
+        mls = norm_space(row.get("MLS", ""))
+        if not mls:
+            order.append(f"__row_{len(order)}")
+            by_mls[order[-1]] = row
+            continue
+        if mls in by_mls:
+            stats["dropped_mls_duplicates"] += 1
+            if side_of(by_mls[mls].get("AdamSide", "")) != "listing" and side_of(row.get("AdamSide", "")) == "listing":
+                by_mls[mls] = row
+            continue
+        by_mls[mls] = row
+        order.append(mls)
+    return [by_mls[key] for key in order], stats
 
 
 def sold_record(row: dict, previous: dict | None) -> dict:
     side = side_of(row.get("AdamSide", ""))
+    agents = agents_of(row.get("TeamMember", ""))
     photo_allowed = side == "listing"
     image = None
     image_alt = None
@@ -156,6 +219,7 @@ def sold_record(row: dict, previous: dict | None) -> dict:
         "mls": norm_space(row.get("MLS", "")),
         "status": "Sold",
         "side": side,
+        "agents": agents,
         "propertyType": property_tag(row.get("PropertyType", "")),
         "price": number_or_none(row.get("ListPrice", "")),
         "soldPrice": number_or_none(row.get("ClosePrice", "")),
@@ -196,11 +260,35 @@ def merge(csv_paths: list[Path], listings_path: Path = LISTINGS_PATH) -> dict:
             continue
         kept.append(row)
     data["listings"] = kept + sold
+    data["updated"] = "2026-10-16"
+    data["source"] = (
+        "On-market rows come from the Bright MLS export. "
+        "Sold rows come from the team closed-sales importer."
+    )
+    data["notes"] = (
+        "One file drives Newest, Pending, and Recently Sold. "
+        "Status Active, Coming Soon, or New Listing appears under Newest. "
+        "Status Pending or Under Contract appears under Pending. "
+        "Status Sold appears under Recently Sold. "
+        "Sold rows are the whole Adam Druck Group, refreshed by scripts/import_closed_sales.py. "
+        "Each sold row's agents list is the public credit, shown as Sold by. "
+        "Buyer-side sold rows must keep side buyer, photoAllowed false, and image null. "
+        "Listing-side sold rows may set image later to a verified photo of that property. "
+        "Do not invent prices, dates, or photos."
+    )
     listings_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     stats["sold"] = len(sold)
     stats["listing_side"] = sum(1 for row in sold if row["side"] == "listing")
     stats["buyer_side"] = sum(1 for row in sold if row["side"] == "buyer")
     stats["with_photo"] = sum(1 for row in sold if row.get("image"))
+    stats["co_listed"] = sum(1 for row in sold if len(row.get("agents") or []) > 1)
+    credit = {}
+    for row in sold:
+        if not row.get("agents"):
+            stats["missing_team_member"] += 1
+        for name in row.get("agents") or []:
+            credit[name] = credit.get(name, 0) + 1
+    stats["agent_credits"] = credit
     return stats
 
 
@@ -219,8 +307,11 @@ def main(argv: list[str]) -> int:
         f"Wrote {stats['sold']} sold rows "
         f"({stats['listing_side']} listing side, {stats['buyer_side']} buyer side). "
         f"Left out {stats['excluded_wolf_lots']} Wolf Rd lot sale(s). "
-        f"Dropped {stats['dropped_buyer_duplicates']} buyer-side duplicate(s). "
-        f"Photos on sold cards: {stats['with_photo']}."
+        f"Dropped {stats['dropped_buyer_duplicates']} buyer-side duplicate(s) "
+        f"and {stats['dropped_mls_duplicates']} duplicate MLS row(s). "
+        f"Co-listed: {stats['co_listed']}. "
+        f"Photos on sold cards: {stats['with_photo']}. "
+        f"Credits: {stats['agent_credits']}."
     )
     return 0
 
