@@ -38,20 +38,20 @@ Active, Coming Soon, and Pending cards already have an `image` field. It is `nul
 "imageAlt": "Front of 653 Broadway, Hanover, PA"
 ```
 
-Use the lowercase MLS number in the path. `photoAllowed` stays `true` on these rows.
+Use the lowercase MLS number in the path. `photoAllowed` stays `true` on these rows. One card photo is enough. Do not fill `gallery`.
 
-Still waiting for a card photo:
+These eight listings now use a photo from Adam's own gallery. `01.jpg` is the front, except 426 Jennifer Dr and 478 Rear Wasp St. Those `01` files are twilight shots with a replaced sky, so the card uses `02` instead: the daytime front on Jennifer, and the side entry on Wasp. A small Bright MLS mark sat in the bottom-left corner and was cropped off the lawn.
 
-| MLS | Status | Address |
-| --- | --- | --- |
-| `PAYK2113324` | Active | 653 Broadway, Hanover |
-| `PAAD2026056` | Active | 32 Quiet Creek Dr, Gettysburg |
-| `PAAD2025752` | Active | 2581 Old Harrisburg Rd, Unit 31, Gettysburg |
-| `PAYK2113022` | Coming Soon | 245 Abbey Dr, Mount Wolf |
-| `PAYK2107306` | Pending | 13 Maul Ave, Felton |
-| `PALA2095588` | Pending | 478 Rear Wasp St, Marietta |
-| `PAYK2109168` | Pending | 251 Highview Dr, Airville |
-| `PAYK2109526` | Pending | 426 Jennifer Dr, New Cumberland |
+| MLS | Card photo |
+| --- | --- |
+| `PAYK2113324` | Front of 653 Broadway, Hanover |
+| `PAAD2026056` | Front of 32 Quiet Creek Dr, Gettysburg |
+| `PAAD2025752` | Front of 2581 Old Harrisburg Rd, Unit 31, Gettysburg |
+| `PAYK2113022` | Front of 245 Abbey Dr, Mount Wolf |
+| `PAYK2107306` | Front of 13 Maul Ave, Felton |
+| `PAYK2109168` | Front of 251 Highview Dr, Airville |
+| `PAYK2109526` | Daytime front of 426 Jennifer Dr, New Cumberland |
+| `PALA2095588` | Side entry of 478 Rear Wasp St, Marietta |
 
 13925 Wolf Rd already uses `images/listings/payk2113766/front.jpg` (the daytime front). Do not use the twilight front of that house. Do not set `image` on a sold row whose `side` is `buyer`.
 

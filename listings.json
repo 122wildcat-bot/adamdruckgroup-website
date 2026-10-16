@@ -47,7 +47,7 @@
       "listed": "2026-10-10",
       "brokerage": "Coldwell Banker Realty",
       "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/Hanover/653-Broadway-17331/234476746",
-      "image": null,
+      "image": "images/listings/payk2113324/front.jpg",
       "gallery": [],
       "side": "listing",
       "propertyType": "Residential",
@@ -55,7 +55,7 @@
       "closeDate": null,
       "pendingDate": null,
       "photoAllowed": true,
-      "imageAlt": null
+      "imageAlt": "Front of 653 Broadway, Hanover, PA"
     },
     {
       "mls": "PAAD2026056",
@@ -72,7 +72,7 @@
       "listed": "2026-10-09",
       "brokerage": "Coldwell Banker Realty",
       "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/Gettysburg/32-Quiet-Creek-Drive-17325/234248483",
-      "image": null,
+      "image": "images/listings/paad2026056/front.jpg",
       "gallery": [],
       "side": "listing",
       "propertyType": "Residential",
@@ -80,7 +80,7 @@
       "closeDate": null,
       "pendingDate": null,
       "photoAllowed": true,
-      "imageAlt": null
+      "imageAlt": "Front of 32 Quiet Creek Dr, Gettysburg, PA"
     },
     {
       "mls": "PAYK2113022",
@@ -97,7 +97,7 @@
       "listed": "2026-10-03",
       "brokerage": "Coldwell Banker Realty",
       "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/Mount-Wolf/245-Abbey-Drive-17347/234237546",
-      "image": null,
+      "image": "images/listings/payk2113022/front.jpg",
       "gallery": [],
       "side": "listing",
       "propertyType": "Residential",
@@ -105,7 +105,7 @@
       "closeDate": null,
       "pendingDate": null,
       "photoAllowed": true,
-      "imageAlt": null
+      "imageAlt": "Front of 245 Abbey Dr, Mount Wolf, PA"
     },
     {
       "mls": "PAAD2025752",
@@ -122,7 +122,7 @@
       "listed": "2026-09-18",
       "brokerage": "Coldwell Banker Realty",
       "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/Gettysburg/2581-Old-Harrisburg-Road-31-17325/233423550",
-      "image": null,
+      "image": "images/listings/paad2025752/front.jpg",
       "gallery": [],
       "side": "listing",
       "propertyType": "Residential",
@@ -130,7 +130,7 @@
       "closeDate": null,
       "pendingDate": null,
       "photoAllowed": true,
-      "imageAlt": null
+      "imageAlt": "Front of 2581 Old Harrisburg Rd, Unit 31, Gettysburg, PA"
     },
     {
       "mls": "PAYK2107306",
@@ -152,8 +152,8 @@
       "listed": "2026-07-09",
       "brokerage": "Coldwell Banker Realty",
       "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/Felton/13-Maul-Avenue-17322/230244310",
-      "image": null,
-      "imageAlt": null,
+      "image": "images/listings/payk2107306/front.jpg",
+      "imageAlt": "Front of 13 Maul Ave, Felton, PA",
       "photoAllowed": true
     },
     {
@@ -176,8 +176,8 @@
       "listed": "2026-08-06",
       "brokerage": "Coldwell Banker Realty",
       "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/Airville/251-Highview-Drive-17302/231468689",
-      "image": null,
-      "imageAlt": null,
+      "image": "images/listings/payk2109168/front.jpg",
+      "imageAlt": "Front of 251 Highview Dr, Airville, PA",
       "photoAllowed": true
     },
     {
@@ -200,8 +200,8 @@
       "listed": "2026-08-11",
       "brokerage": "Coldwell Banker Realty",
       "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/New-Cumberland/426-Jennifer-Drive-17070/231816773",
-      "image": null,
-      "imageAlt": null,
+      "image": "images/listings/payk2109526/front.jpg",
+      "imageAlt": "Daytime front of 426 Jennifer Dr, New Cumberland, PA",
       "photoAllowed": true
     },
     {
@@ -224,8 +224,8 @@
       "listed": "2026-09-16",
       "brokerage": "Coldwell Banker Realty",
       "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/Marietta/478-Rear-Wasp-Street-17547/233402839",
-      "image": null,
-      "imageAlt": null,
+      "image": "images/listings/pala2095588/front.jpg",
+      "imageAlt": "Side entry of 478 Rear Wasp St, Marietta, PA",
       "photoAllowed": true
     },
     {
