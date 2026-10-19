@@ -59,7 +59,7 @@
     },
     {
       "mls": "PAAD2026056",
-      "status": "Active",
+      "status": "Pending",
       "price": 439900,
       "address": "32 Quiet Creek Dr",
       "city": "Gettysburg",
@@ -78,7 +78,7 @@
       "propertyType": "Residential",
       "soldPrice": null,
       "closeDate": null,
-      "pendingDate": null,
+      "pendingDate": "2026-10-17",
       "photoAllowed": true,
       "imageAlt": "Front of 32 Quiet Creek Dr, Gettysburg, PA"
     },
