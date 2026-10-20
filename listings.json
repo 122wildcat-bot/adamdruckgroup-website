@@ -35,7 +35,7 @@
     {
       "mls": "PAYK2113324",
       "status": "Active",
-      "price": 259900,
+      "price": 249900,
       "address": "653 Broadway",
       "city": "Hanover",
       "state": "PA",
@@ -109,7 +109,7 @@
     },
     {
       "mls": "PAAD2025752",
-      "status": "Active",
+      "status": "Pending",
       "price": 104900,
       "address": "2581 Old Harrisburg Rd, Unit 31",
       "city": "Gettysburg",
@@ -128,7 +128,7 @@
       "propertyType": "Residential",
       "soldPrice": null,
       "closeDate": null,
-      "pendingDate": null,
+      "pendingDate": "2026-10-19",
       "photoAllowed": true,
       "imageAlt": "Front of 2581 Old Harrisburg Rd, Unit 31, Gettysburg, PA"
     },
