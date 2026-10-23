@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21",
+  "updated": "2026-10-23",
   "source": "On-market rows come from the Bright MLS export. Sold rows come from the team closed-sales importer.",
   "searchUrl": "https://adamdruck.sites.cbmoxi.com/search",
   "listings": [
@@ -134,7 +134,7 @@
     },
     {
       "mls": "PAYK2113022",
-      "status": "Active",
+      "status": "Pending",
       "price": 339900,
       "address": "245 Abbey Dr",
       "city": "Mount Wolf",
@@ -153,7 +153,7 @@
       "propertyType": "Residential",
       "soldPrice": null,
       "closeDate": null,
-      "pendingDate": null,
+      "pendingDate": "2026-10-22",
       "photoAllowed": true,
       "imageAlt": "Front of 245 Abbey Dr, Mount Wolf, PA"
     },
