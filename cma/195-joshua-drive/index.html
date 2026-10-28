@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Analysis · 195 Joshua Drive, Hanover PA · Adam Druck Group</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="description" content="Interactive comparative market analysis for 195 Joshua Drive, Hanover, PA 17331, prepared by the Adam Druck Group, Coldwell Banker Realty.">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=gambetta@400,500,600&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <div class="brand" aria-label="Adam Druck Group, Coldwell Banker Realty">
+      <span class="brand__mark">ADG</span>
+      <span class="brand__text"><strong>Adam Druck Group</strong><span>Coldwell Banker Realty</span></span>
+    </div>
+    <nav class="nav" aria-label="Sections">
+      <a href="#pricing">Pricing</a>
+      <a href="#map">Map</a>
+      <a href="#comps">Sales</a>
+      <a href="#value">Value</a>
+      <a href="#next">Next steps</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="eyebrow">Comparative Market Analysis · October 28, 2026</p>
+        <h1>195 Joshua Drive<span>Hanover, PA 17331</span></h1>
+        <p class="prepared">Prepared for the Owners of 195 Joshua Drive</p>
+        <p class="lede">A 2012 colonial in High Pointe, West Manheim Township, measured against the most recent sales on Joshua Drive and today’s competing listings, with a modest cushion built in for a market that has begun to cool.</p>
+      </div>
+      <aside class="verdict" aria-label="Pricing summary">
+        <p class="verdict__label">Recommended list price</p>
+        <p class="verdict__price">$429,900</p>
+        <dl class="verdict__facts">
+          <div><dt>Estimated value range</dt><dd>$415,000 – $435,000</dd></div>
+          <div><dt>Reconciled market value</dt><dd>≈ $425,000</dd></div>
+          <div><dt>Comparable sales</dt><dd>5 on Joshua Drive</dd></div>
+        </dl>
+      </aside>
+    </div>
+    <div class="wrap">
+      <ul class="facts" aria-label="Property facts">
+        <li><span>Above grade</span><strong>2,210 sq ft</strong></li>
+        <li><span>Finished lower level</span><strong>≈ 724 sq ft</strong></li>
+        <li><span>Bedrooms</span><strong>4 up + 1 lower</strong></li>
+        <li><span>Baths</span><strong>2.5</strong></li>
+        <li><span>Lot</span><strong>0.389 acre</strong></li>
+        <li><span>Built</span><strong>2012</strong></li>
+        <li><span>Condition</span><strong>Excellent</strong></li>
+        <li><span>Schools</span><strong>South Western SD</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">01 · Pricing strategy</p>
+        <h2>Three ways to enter the market</h2>
+        <p class="section__intro">Select a strategy to see where it sits against recent Joshua Drive sales and the main competing listing.</p>
+      </header>
+
+      <div class="tiers" role="radiogroup" aria-label="Pricing strategy">
+        <button class="tier" role="radio" aria-checked="false" data-tier="quick">
+          <span class="tier__name">Quick Sale</span>
+          <span class="tier__price">$419,900</span>
+          <span class="tier__time">&lt; 7 days, multiple offers likely</span>
+          <span class="tier__desc">Priced to draw the widest pool of buyers early and create competition.</span>
+        </button>
+        <button class="tier tier--rec" role="radio" aria-checked="true" data-tier="rec">
+          <span class="tier__badge">Recommended</span>
+          <span class="tier__name">Recommended</span>
+          <span class="tier__price">$429,900</span>
+          <span class="tier__time">10 to 14 days</span>
+          <span class="tier__desc">Rewards the home’s excellent condition while staying clearly below the larger $450,000 alternative nearby.</span>
+        </button>
+        <button class="tier" role="radio" aria-checked="false" data-tier="test">
+          <span class="tier__name">Upper-End Test</span>
+          <span class="tier__price">$439,900</span>
+          <span class="tier__time">Reassess after 10 to 14 days</span>
+          <span class="tier__desc">Only with standout photos and finishes. Expect more negotiation and a closer look at feedback.</span>
+        </button>
+      </div>
+
+      <figure class="ladder" aria-labelledby="ladder-cap">
+        <div class="ladder__track" id="ladder"></div>
+        <figcaption id="ladder-cap" class="note">Sale prices are as recorded; they are not adjusted for size or features. Timing labels are planning targets, not guarantees.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="map" class="section section--tint">
+    <div class="wrap map__grid">
+      <header class="section__head">
+        <p class="eyebrow">02 · Location</p>
+        <h2>Every sale is on your street</h2>
+        <p class="section__intro">All five comparable sales are on Joshua Drive, in the same subdivision and the same South Western School District. Select a home to view details.</p>
+        <ol class="maplist" id="maplist"></ol>
+      </header>
+      <div class="map" id="leaflet" role="region" aria-label="Map of subject and comparable sales"></div>
+    </div>
+  </section>
+
+  <section id="comps" class="section">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">03 · Comparable sales</p>
+        <h2>How each sale translates to your home</h2>
+        <p class="section__intro">Each sale is adjusted for differences from your home: living area above grade, finished lower level, and features such as an extra full bath or a pool. Then a 3% slower-market allowance is applied.</p>
+      </header>
+
+      <div class="comptabs" role="tablist" aria-label="Comparable sales" id="comptabs"></div>
+      <article class="comp" id="comppanel" role="tabpanel" aria-live="polite"></article>
+    </div>
+  </section>
+
+  <section id="value" class="section section--tint">
+    <div class="wrap value__grid">
+      <header class="section__head">
+        <p class="eyebrow">04 · Reconciling value</p>
+        <h2>Weighting the evidence</h2>
+        <p class="section__intro">Sales most similar to your home in size, layout and timing carry the most weight. Move the slider to see how the market allowance changes the weighted result.</p>
+        <div class="slider">
+          <label for="soft">Slower-market allowance <output id="softout">3.0%</output></label>
+          <input type="range" id="soft" min="0" max="6" step="0.5" value="3">
+          <div class="slider__scale" aria-hidden="true"><span>0%</span><span>3% (used)</span><span>6%</span></div>
+        </div>
+        <div class="weighted">
+          <p>Weighted indication</p>
+          <strong id="weighted">$421,300</strong>
+          <span id="weightednote">Before the allowance: $434,300</span>
+        </div>
+      </header>
+      <div class="bars" id="bars" aria-label="Adjusted value by comparable sale"></div>
+    </div>
+    <div class="wrap">
+      <p class="note callout">The final $425,000 value gives slight additional weight to the home’s excellent condition and today’s competing listings. It is rounded on purpose; these figures support a pricing decision and are not precise to the dollar.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap compete">
+      <header class="section__head">
+        <p class="eyebrow">05 · Current competition</p>
+        <h2>What buyers can choose instead</h2>
+      </header>
+      <div class="compete__card">
+        <p class="compete__addr">357 Joshua Court <span>(marketed as 357 Joshua Dr)</span></p>
+        <p class="compete__price">$450,000 <span>reduced from $475,000 on Sept. 29</span></p>
+        <ul>
+          <li>≈ 2,220 sq ft above grade + ≈ 1,100 sq ft finished lower level</li>
+          <li>6 bedrooms (as marketed) · 3.5 baths · 2-car garage · 0.46 acre</li>
+          <li>On the market about five weeks as of October 28</li>
+        </ul>
+        <p>This home offers more finished space and an extra full bath. Pricing your home clearly below it gives buyers a reason to choose your home, rather than using it to justify an offer on the larger house. <a href="https://www.redfin.com/PA/Hanover/357-Joshua-Ct-17331/home/140463460" target="_blank" rel="noopener">Listing on Redfin</a></p>
+      </div>
+      <div class="compete__side">
+        <h3>Market read</h3>
+        <p>Well-presented homes on Joshua Drive are still selling well. 48 Joshua went under contract within days of listing and sold above its asking price in August, according to <a href="https://www.redfin.com/PA/Hanover/48-Joshua-Dr-17331/home/140690812" target="_blank" rel="noopener">its listing history</a>. Meanwhile, the nearby $25,000 price cut and 204 Joshua’s two reductions last fall (<a href="https://www.realtor.com/realestateandhomes-detail/204-Joshua-Dr_Hanover_PA_17331_M35474-58191" target="_blank" rel="noopener">listing history</a>) show buyers are price sensitive. That supports a measured 3% cushion rather than a steep discount.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="next" class="section section--navy">
+    <div class="wrap next__grid">
+      <div>
+        <p class="eyebrow eyebrow--light">06 · Next steps</p>
+        <h2>Launch at $429,900</h2>
+        <p>We will launch with photography that highlights the main-level living space and the quality of the finished lower level. If the first 10 to 14 days bring weak showing activity or repeated price objections, we will review feedback and competing inventory together before adjusting.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Confirm details</strong> Garage size, lower-level bath, and bedroom egress for accurate marketing.</li>
+        <li><strong>Photo review</strong> Kitchen, baths, and lower level confirm where in the range we can position.</li>
+        <li><strong>Pre-list prep</strong> Light staging and exterior touch-ups to support the excellent-condition story.</li>
+        <li><strong>Go live</strong> Monitor showings and feedback daily through the first two weeks.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--small">
+    <div class="wrap">
+      <details class="fine">
+        <summary>Methodology, data notes and sources</summary>
+        <div class="fine__body">
+          <h3>How the adjustments work</h3>
+          <ul>
+            <li>Above-grade living area: $90 per square foot of difference.</li>
+            <li>Finished lower level: $35 per square foot of difference, with no extra bedroom premium.</li>
+            <li>Extra full bath: about $10,000. Pool, recent rebuilds and larger lots get individual adjustments, shown on each sale.</li>
+            <li>Slower market: the adjusted figure is reduced 3% once. This is a pricing cushion, not a measured drop in neighborhood values.</li>
+          </ul>
+          <h3>Data notes</h3>
+          <ul>
+            <li>48 Joshua: listing history shows $425,000 on Aug. 4, 2026; county records show $420,000 on Aug. 13. Using $420,000 would lower the weighted figure by about $2,200.</li>
+            <li>12 Joshua: finished lower-level area was not reported. If it has a comparable finished basement, the weighted figure would fall by about $2,500.</li>
+            <li>132 and 12 Joshua sale dates differ by a few days between listing history and county records.</li>
+            <li>Your home’s 2,934 total sq ft is from county records; the 2,210 above-grade figure was provided by the owner.</li>
+            <li>Distances are straight-line estimates from county parcel boundaries.</li>
+          </ul>
+          <h3>Sources</h3>
+          <ul class="sources">
+            <li><a href="https://arcweb1.ycpc.org/server/rest/services/OPEN_DATA/Parcels/FeatureServer/0/query?where=SITE_ST_NAME%20LIKE%20%27JOSHUA%25%27&outFields=PIDN,PROPADR,RES_LIVING_AREA,YRBLT,ACRES,SALEDT,PRICE,SCHOOL_DIS&returnGeometry=false&f=pjson" target="_blank" rel="noopener">York County parcel and sale records, Joshua Drive</a></li>
+            <li><a href="https://arcweb1.ycpc.org/server/rest/services/OPEN_DATA/Parcels/FeatureServer/0/query?where=PIDN%3D%275200019027700%27&outFields=*&returnGeometry=false&f=pjson" target="_blank" rel="noopener">York County parcel record, 195 Joshua Drive</a></li>
+            <li><a href="https://www.redfin.com/PA/Hanover/48-Joshua-Dr-17331/home/140690812" target="_blank" rel="noopener">48 Joshua Dr: Redfin</a></li>
+            <li><a href="https://www.realtor.com/realestateandhomes-detail/204-Joshua-Dr_Hanover_PA_17331_M35474-58191" target="_blank" rel="noopener">204 Joshua Dr: Realtor.com</a></li>
+            <li><a href="https://www.zillow.com/homedetails/244-Joshua-Dr-Hanover-PA-17331/88872227_zpid/" target="_blank" rel="noopener">244 Joshua Dr: Zillow</a></li>
+            <li><a href="https://www.redfin.com/PA/Hanover/132-Joshua-Dr-17331/home/140651748" target="_blank" rel="noopener">132 Joshua Dr: Redfin</a></li>
+            <li><a href="https://www.redfin.com/PA/Hanover/12-Joshua-Dr-17331/home/140651725" target="_blank" rel="noopener">12 Joshua Dr: Redfin</a></li>
+            <li><a href="https://www.redfin.com/PA/Hanover/357-Joshua-Ct-17331/home/140463460" target="_blank" rel="noopener">357 Joshua (active): Redfin</a></li>
+          </ul>
+          <p class="note">This comparative market analysis is an opinion of price to help with listing decisions. It is not an appraisal and was prepared from public records and listing syndication rather than a verified MLS export. Sale terms and concessions were not independently verified. Your home’s condition is based on the owner’s description; no interior inspection was performed.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="brand brand--light">
+      <span class="brand__mark">ADG</span>
+      <span class="brand__text"><strong>Adam Druck Group</strong><span>Coldwell Banker Realty</span></span>
+    </div>
+    <p><a href="https://AdamDruckGroup.com" target="_blank" rel="noopener">AdamDruckGroup.com</a></p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="app.js" defer></script>
+</body>
+</html>
