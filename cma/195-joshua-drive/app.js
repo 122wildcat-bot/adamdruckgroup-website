@@ -9,23 +9,23 @@ const active = {id:'act', addr:'357 Joshua Ct', lat:39.766524, lng:-76.968444, p
 
 const comps = [
   {id:'48', addr:'48 Joshua Dr', lat:39.761505, lng:-76.968531, price:425000, date:'Aug. 4, 2026', ag:2115, bg:0, bgNote:'Unfinished walkout', beds:'4', baths:'2.5', lot:'0.34 ac', built:'2014 (rebuilt 2024)', weight:.45,
-   other:[{l:'Recent full rebuild', v:-10000}],
+   other:[{l:'Your extra full bath', v:10000},{l:'Recent full rebuild', v:-10000}],
    why:'The closest match in size and layout, and the most recent sale. It was rebuilt in 2024, so it gets credit for newer finishes and systems. It carries the most weight.',
    src:'https://www.redfin.com/PA/Hanover/48-Joshua-Dr-17331/home/140690812', srcName:'Redfin listing history'},
   {id:'204', addr:'204 Joshua Dr', lat:39.763594, lng:-76.97186, price:434000, date:'Dec. 19, 2025', ag:2342, bg:690, bgNote:'Finished', beds:'5', baths:'3.5', lot:'0.35 ac', built:'2010', weight:.30,
-   other:[{l:'Extra full bath', v:-10000},{l:'Your condition advantage', v:10000}],
-   why:'Practically next door with a similar finished lower level. It has an extra full bath but a Cape Cod layout, and your home’s condition offsets the bath.',
+   other:[{l:'Your condition advantage', v:10000}],
+   why:'Practically next door with a similar finished lower level and the same 3.5 baths. It has a Cape Cod layout, and your home gets credit for its excellent condition.',
    src:'https://www.realtor.com/realestateandhomes-detail/204-Joshua-Dr_Hanover_PA_17331_M35474-58191', srcName:'Realtor.com listing details'},
   {id:'244', addr:'244 Joshua Dr', lat:39.764591, lng:-76.972255, price:500000, date:'Feb. 27, 2026', ag:3188, bg:500, bgNote:'Partially finished', beds:'5', baths:'2.5', lot:'0.39 ac', built:'2008', weight:.10,
-   other:[],
+   other:[{l:'Your extra full bath', v:10000}],
    why:'A few doors away, but nearly 1,000 sq ft larger above grade. The large size adjustment makes it a supporting comp rather than a primary one.',
    src:'https://www.zillow.com/homedetails/244-Joshua-Dr-Hanover-PA-17331/88872227_zpid/', srcName:'Zillow listing details'},
   {id:'132', addr:'132 Joshua Dr', lat:39.762405, lng:-76.970638, price:490000, date:'June 22, 2026', ag:2838, bg:741, bgNote:'Finished', beds:'7 (as marketed)', baths:'3.5', lot:'0.34 ac', built:'2007', weight:.05,
-   other:[{l:'Extra full bath', v:-10000},{l:'Inground pool & outdoor living', v:-15000},{l:'Your age/condition edge', v:5000}],
+   other:[{l:'Inground pool & outdoor living', v:-15000},{l:'Your age/condition edge', v:5000}],
    why:'A much larger home with an inground pool. It confirms the top of the street but needs big adjustments, so its weight is small.',
    src:'https://www.redfin.com/PA/Hanover/132-Joshua-Dr-17331/home/140651748', srcName:'Redfin listing history'},
   {id:'12', addr:'12 Joshua Dr', lat:39.761084, lng:-76.967268, price:375000, date:'Jan. 23, 2026', ag:1768, bg:0, bgNote:'Not reported as finished', beds:'5', baths:'2.5', lot:'0.63 ac', built:'2014', weight:.10,
-   other:[{l:'Larger lot', v:-8000},{l:'Recent renovation', v:-5000}],
+   other:[{l:'Your extra full bath', v:10000},{l:'Larger lot', v:-8000},{l:'Recent renovation', v:-5000}],
    why:'Smaller and recently renovated, on a larger lot. It is a useful lower bound, but a lower-level finish was not reported, so it carries less weight.',
    src:'https://www.redfin.com/PA/Hanover/12-Joshua-Dr-17331/home/140651725', srcName:'Redfin listing history'}
 ];
@@ -47,7 +47,7 @@ comps.forEach(c=>c.dist=miles(subject,c));
 active.dist=miles(subject,active);
 
 /* ---------- Pricing ladder ---------- */
-const tiers = {quick:{p:419900,l:'Quick Sale'}, rec:{p:429900,l:'Recommended'}, test:{p:439900,l:'Upper-End Test'}};
+const tiers = {quick:{p:429900,l:'Quick Sale'}, rec:{p:439900,l:'Recommended'}, test:{p:449900,l:'Upper-End Test'}};
 const ladder = document.getElementById('ladder');
 const MIN=360000, MAX=510000;
 const pct = v => ((v-MIN)/(MAX-MIN)*100);
@@ -65,7 +65,7 @@ function buildLadder(){
   const nRows=rowsEnd.length, axisY=nRows*ROWH+18;
   ladder.style.height=(axisY+92)+'px';
   let h=`<div class="ladder__axis" style="top:${axisY}px"></div>`;
-  h += `<div class="ladder__band" style="top:${axisY-4}px;left:${pct(415000)}%;width:${pct(435000)-pct(415000)}%"></div>`;
+  h += `<div class="ladder__band" style="top:${axisY-4}px;left:${pct(425000)}%;width:${pct(445000)-pct(425000)}%"></div>`;
   for(let v=375000; v<=500000; v+=25000) h += `<span class="ladder__tick" style="top:${axisY+10}px;left:${pct(v)}%">$${v/1000}K</span>`;
   pts.forEach(p=>{
     const y=(nRows-1-p.row)*ROWH;
@@ -73,7 +73,7 @@ function buildLadder(){
     h += `<span class="ladder__lead" style="left:${pct(p.v)}%;top:${y+20}px;height:${axisY-y-20}px"></span>`;
     h += `<span class="ladder__dot ladder__dot--${p.k}" style="left:${pct(p.v)}%;top:${axisY-6}px"></span>`;
   });
-  h += `<div class="ladder__you" id="you" style="left:${pct(429900)}%;top:${axisY-10}px"><b></b><span id="youlbl">Your home · $429,900</span></div>`;
+  h += `<div class="ladder__you" id="you" style="left:${pct(439900)}%;top:${axisY-10}px"><b></b><span id="youlbl">Recommended · $439,900</span></div>`;
   ladder.innerHTML = h;
   if(!ladder.nextElementSibling || !ladder.nextElementSibling.classList.contains('ladder__legend')){
   const leg = document.createElement('div');
@@ -131,7 +131,7 @@ function renderComp(id){
         <div class="k">Above grade</div><div>${c.ag.toLocaleString()} sq ft</div><div>2,210 sq ft</div>
         <div class="k">Lower level</div><div>${c.bg? c.bg.toLocaleString()+' sq ft':'—'}<br><small>${c.bgNote}</small></div><div>≈ 724 sq ft<br><small>Finished</small></div>
         <div class="k">Bedrooms</div><div>${c.beds}</div><div>4 + 1 lower</div>
-        <div class="k">Baths</div><div>${c.baths}</div><div>2.5</div>
+        <div class="k">Baths</div><div>${c.baths}</div><div>3.5</div>
         <div class="k">Lot</div><div>${c.lot}</div><div>0.389 ac</div>
         <div class="k">Built</div><div>${c.built}</div><div>2012</div>
       </div>
@@ -160,9 +160,9 @@ function renderBars(){
   let total=0, pre=0;
   let h = [...comps].sort((a,b)=>b.weight-a.weight).map(c=>{
     const adj=c.pre*(1-soft); total+=adj*c.weight; pre+=c.pre*c.weight;
-    return `<div class="bar"><span class="nm">${c.addr.replace(' Dr','')}<small>${Math.round(c.weight*100)}% weight</small></span><span class="tr"><i style="width:${p(adj)}%"></i><em style="left:${p(425000)}%" title="$425,000 reconciled value"></em></span><span class="v">${fmt(adj)}</span></div>`;
+    return `<div class="bar"><span class="nm">${c.addr.replace(' Dr','')}<small>${Math.round(c.weight*100)}% weight</small></span><span class="tr"><i style="width:${p(adj)}%"></i><em style="left:${p(435000)}%" title="$435,000 reconciled value"></em></span><span class="v">${fmt(adj)}</span></div>`;
   }).join('');
-  h += `<div class="bars__foot"><span>Scale: $380K to $460K</span><span>Navy line = $425,000 reconciled value</span></div>`;
+  h += `<div class="bars__foot"><span>Scale: $380K to $460K</span><span>Navy line = $435,000 reconciled value</span></div>`;
   bars.innerHTML = h;
   document.getElementById('weighted').textContent = fmt(Math.round(total/100)*100);
   document.getElementById('weightednote').textContent = `Before the allowance: ${fmt(Math.round(pre/100)*100)}`;
