@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="referrer" content="no-referrer"><title>Interactive CMA · Adam Druck Group</title><link rel="icon" href="/favicon.svg"><style>html,body{margin:0;height:100%;background:#fbfaf7;color:#012169;font-family:system-ui,sans-serif}iframe{border:0;width:100%;height:100%;display:block}#status{padding:24px;max-width:700px;margin:auto}a{color:#012169}</style></head><body><div id="status"><h1>Adam Druck Group</h1><p>Opening your interactive CMA…</p><noscript>Enable JavaScript to view this interactive report.</noscript></div><script>
+(() => {
+ const match=location.hash.match(/^#([a-z0-9-]{1,120})\/([0-9a-f-]{36})\/([0-9a-f]{64})$/);
+ const status=document.getElementById('status');
+ if(!match){status.querySelector('p').textContent='This link is incomplete. Please ask your ADG agent for the full CMA link.';return;}
+ const frame=document.createElement('iframe');
+ frame.title='ADG Interactive CMA';
+ frame.referrerPolicy='no-referrer';
+ frame.src='https://web-production-3c320.up.railway.app/cma/shared/'+match[2]+'/'+match[3];
+ document.title=match[1].replace(/-/g,' ')+' · ADG Interactive CMA';
+ frame.addEventListener('load',()=>status.remove());
+ document.body.append(frame);
+})();
+</script></body></html>
