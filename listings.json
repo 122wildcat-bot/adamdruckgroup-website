@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-11-01",
   "source": "On-market rows come from the Bright MLS export. Sold rows come from the team closed-sales importer.",
   "searchUrl": "https://adamdruck.sites.cbmoxi.com/search",
   "listings": [
@@ -353,6 +353,33 @@
       "photoAllowed": true
     },
     {
+      "mls": "PAYK2110534",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Residential",
+      "price": 364900,
+      "soldPrice": 361000,
+      "closeDate": "2026-10-30",
+      "pendingDate": null,
+      "address": "55 Farm Ln",
+      "city": "Manchester",
+      "state": "PA",
+      "zip": "17345",
+      "beds": 3,
+      "bathsFull": 2,
+      "bathsHalf": 1,
+      "sqft": 1516,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
       "mls": "PALA2095588",
       "status": "Sold",
       "side": "listing",
@@ -400,6 +427,33 @@
       "bathsFull": 3,
       "bathsHalf": 0,
       "sqft": 1218,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PAYK2112240",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Katie Kopp"
+      ],
+      "propertyType": "Residential",
+      "price": 198000,
+      "soldPrice": 198000,
+      "closeDate": "2026-10-26",
+      "pendingDate": null,
+      "address": "22 E Penna. Ave",
+      "city": "Yoe",
+      "state": "PA",
+      "zip": "17313",
+      "beds": 3,
+      "bathsFull": 1,
+      "bathsHalf": 0,
+      "sqft": 912,
       "listed": null,
       "brokerage": "Coldwell Banker Realty",
       "url": null,
