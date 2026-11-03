@@ -2,6 +2,14 @@
 
 Static site for [adamdruckgroup.com](https://adamdruckgroup.com), served by GitHub Pages.
 
+## Katie Kopp landing page
+
+Katie's permanent landing page is [adamdruckgroup.com/katiekopp](https://adamdruckgroup.com/katiekopp/), served from `katiekopp/index.html`. GitHub Pages adds the trailing slash automatically. The page is reached by its direct link and is not added to the main site's navigation.
+
+The landing page, privacy notice, and thank-you page are standalone HTML source files in `katiekopp/`; the `_build_*.py` scripts do not generate them. Shared styles and images remain in `katie-kopp/styles.css` and `katie-kopp/assets/` so existing asset links stay valid. The old `/katie-kopp/` pages redirect visitors to the corresponding `/katiekopp/` pages, preserving query strings and section anchors when JavaScript is enabled.
+
+The contact form keeps its existing FormSubmit recipient and Katie's CC, with its return URL pointing to `/katiekopp/thank-you.html`. Do not submit production inquiries as deployment checks.
+
 ## Listings
 
 The home page and [sales.html](sales.html) both read [`listings.json`](listings.json). There is no live MLS or IDX feed. A live feed would need an IDX agreement approved by Adam's office.
