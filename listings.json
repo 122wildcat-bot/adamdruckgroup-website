@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "source": "On-market rows come from the Bright MLS export. Sold rows come from the team closed-sales importer.",
   "searchUrl": "https://adamdruck.sites.cbmoxi.com/search",
   "listings": [
@@ -106,7 +106,7 @@
     {
       "mls": "PAYK2113766",
       "status": "Active",
-      "price": 449900,
+      "price": 444900,
       "address": "13925 Wolf Rd",
       "city": "Felton",
       "state": "PA",
@@ -397,6 +397,33 @@
       "bathsFull": 2,
       "bathsHalf": 1,
       "sqft": 1516,
+      "listed": null,
+      "brokerage": "Coldwell Banker Realty",
+      "url": null,
+      "image": null,
+      "imageAlt": null,
+      "photoAllowed": false
+    },
+    {
+      "mls": "PALA2094796",
+      "status": "Sold",
+      "side": "buyer",
+      "agents": [
+        "Trevor Stuck"
+      ],
+      "propertyType": "Residential",
+      "price": 485000,
+      "soldPrice": 485000,
+      "closeDate": "2026-10-30",
+      "pendingDate": null,
+      "address": "390 Miller Rd",
+      "city": "Elizabethtown",
+      "state": "PA",
+      "zip": "17022",
+      "beds": 3,
+      "bathsFull": 1,
+      "bathsHalf": 0,
+      "sqft": 1300,
       "listed": null,
       "brokerage": "Coldwell Banker Realty",
       "url": null,
