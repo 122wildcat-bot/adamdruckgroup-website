@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "source": "On-market rows come from the Bright MLS export. Sold rows come from the team closed-sales importer.",
   "searchUrl": "https://adamdruck.sites.cbmoxi.com/search",
   "listings": [
@@ -81,7 +81,7 @@
     {
       "mls": "PAAD2026312",
       "status": "Active",
-      "price": 899900,
+      "price": 892500,
       "address": "1070 Fish and Game Rd",
       "city": "East Berlin",
       "state": "PA",
