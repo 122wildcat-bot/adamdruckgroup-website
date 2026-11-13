@@ -185,7 +185,7 @@ let map=null; const markers={};
 function initMap(){
   if(typeof L==='undefined'){document.getElementById('leaflet').innerHTML='<p style="padding:1rem">The map could not load. The list shows all locations.</p>';return;}
   map = L.map('leaflet',{scrollWheelZoom:false, zoomControl:true}).setView([subject.lat,subject.lng],16);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{maxZoom:19, subdomains:'abcd', attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19, attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
   const bounds=[];
   items.forEach(it=>{
     const cls = it.kind==='you'?'pin pin--you':it.kind==='act'?'pin pin--act':'pin';
