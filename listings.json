@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12",
+  "updated": "2026-11-14",
   "source": "On-market rows come from the Bright MLS export. Sold rows come from the team closed-sales importer.",
   "searchUrl": "https://adamdruck.sites.cbmoxi.com/search",
   "listings": [
@@ -42,7 +42,7 @@
       "sqft": 2094,
       "listed": "2026-11-07",
       "brokerage": "Coldwell Banker Realty",
-      "url": "https://adamdruck.sites.cbmoxi.com/search",
+      "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/York/621-Denny-Lane-17406/236463276",
       "image": null,
       "gallery": [],
       "side": "listing",
@@ -55,7 +55,7 @@
     },
     {
       "mls": "PAYK2114798",
-      "status": "Active",
+      "status": "Pending",
       "price": 109900,
       "address": "384 E Maple St",
       "city": "York",
@@ -67,14 +67,14 @@
       "sqft": 1240,
       "listed": "2026-11-04",
       "brokerage": "Coldwell Banker Realty",
-      "url": "https://adamdruck.sites.cbmoxi.com/search",
+      "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/York/384-E-Maple-Street-17403/236347232",
       "image": null,
       "gallery": [],
       "side": "listing",
       "propertyType": "Residential",
       "soldPrice": null,
       "closeDate": null,
-      "pendingDate": null,
+      "pendingDate": "2026-11-13",
       "photoAllowed": true,
       "imageAlt": "Front of 384 E Maple St, York, PA"
     },
@@ -131,7 +131,7 @@
     {
       "mls": "PAYK2113992",
       "status": "Active",
-      "price": 279900,
+      "price": 277500,
       "address": "3912 Sheppard Dr",
       "city": "Dover",
       "state": "PA",
