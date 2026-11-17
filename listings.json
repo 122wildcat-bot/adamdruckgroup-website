@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15",
+  "updated": "2026-11-17",
   "source": "On-market rows come from the Bright MLS export. Sold rows come from the team closed-sales importer.",
   "searchUrl": "https://adamdruck.sites.cbmoxi.com/search",
   "listings": [
@@ -210,7 +210,7 @@
     {
       "mls": "PAYK2113324",
       "status": "Active",
-      "price": 249900,
+      "price": 246900,
       "address": "653 Broadway",
       "city": "Hanover",
       "state": "PA",
