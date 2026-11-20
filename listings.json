@@ -1,8 +1,33 @@
 {
-  "updated": "2026-11-17",
+  "updated": "2026-11-20",
   "source": "On-market rows come from the Bright MLS export. Sold rows come from the team closed-sales importer.",
   "searchUrl": "https://adamdruck.sites.cbmoxi.com/search",
   "listings": [
+    {
+      "mls": "PAYK2115524",
+      "status": "Active",
+      "price": 444900,
+      "address": "13975 Wolf Rd",
+      "city": "Felton",
+      "state": "PA",
+      "zip": "17322",
+      "beds": 4,
+      "bathsFull": 2,
+      "bathsHalf": 0,
+      "sqft": 1931,
+      "listed": "2026-11-19",
+      "brokerage": "Coldwell Banker Realty",
+      "url": "https://adamdruck.sites.cbmoxi.com/listing/PA/Felton/13975-Wolf-Road-17322/236971636",
+      "image": "images/listings/payk2115524/front.jpg",
+      "gallery": [],
+      "side": "listing",
+      "propertyType": "Residential",
+      "soldPrice": null,
+      "closeDate": null,
+      "pendingDate": null,
+      "photoAllowed": true,
+      "imageAlt": "Daytime front of 13975 Wolf Rd, Felton, PA"
+    },
     {
       "mls": "PAYK2115346",
       "status": "Coming Soon",
@@ -30,7 +55,7 @@
     },
     {
       "mls": "PAYK2115120",
-      "status": "Coming Soon",
+      "status": "Active",
       "price": 495000,
       "address": "1120 Millcreek Rd",
       "city": "York",
