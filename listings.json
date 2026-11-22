@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "source": "On-market rows come from the Bright MLS export. Sold rows come from the team closed-sales importer.",
   "searchUrl": "https://adamdruck.sites.cbmoxi.com/search",
   "listings": [
@@ -80,7 +80,7 @@
     },
     {
       "mls": "PAYK2114986",
-      "status": "Active",
+      "status": "Pending",
       "price": 439900,
       "address": "621 Denny Ln",
       "city": "York",
@@ -99,7 +99,7 @@
       "propertyType": "Residential",
       "soldPrice": null,
       "closeDate": null,
-      "pendingDate": null,
+      "pendingDate": "2026-11-20",
       "photoAllowed": true,
       "imageAlt": "Front of 621 Denny Ln, York, PA"
     },
